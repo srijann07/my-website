@@ -18,7 +18,7 @@ Personal portfolio website showcasing my projects, technical interests, and work
 
 | Project | What it demonstrates |
 |---|---|
-| [HealthAI](https://github.com/srijann07/HealthBridge) | Flask, SQLAlchemy, authentication, health-risk analysis, testing |
+| [HealthAI](https://github.com/srijann07/healthai-deploy) | Flask, SQLAlchemy, authentication, health-risk analysis, testing |
 | [HealthAI Deployment](https://github.com/srijann07/healthai-deploy) | Deployment-oriented cloud work around the HealthAI application |
 | [Micromouse Maze Simulator](https://github.com/srijann07/micromouse-maze-simulator) | Pathfinding, autonomous exploration, simulation, testing |
 | [Student Dashboard](https://github.com/srijann07/student-dashboard) | Python, Streamlit, Pandas, Plotly |
