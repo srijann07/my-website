@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Srijan Sangroula — Full-Stack & Systems Engineer | Founder's Office @ Scream It</title>
-  <meta name="description" content="Portfolio of Srijan Sangroula — Full Stack Developer Intern in the Founder's Office at Scream It (Bengaluru). Specialized in Python (FastAPI/Flask), React, Commercial Payment Engines (Razorpay HMAC-SHA256), and Cloud Microservices.">
+  <meta name="description" content="Portfolio of Srijan Sangroula — Full Stack Developer Intern in the Founder's Office at Scream It (Bengaluru). Specialized in Python (FastAPI/Flask), React, Commercial Payment Engines (Razorpay HMAC-SHA256), AI microservices, and Distributed Systems.">
   <meta name="author" content="Srijan Sangroula">
   <meta property="og:title" content="Srijan Sangroula — Full-Stack & Systems Engineer">
-  <meta property="og:description" content="Explore production marketplace systems, cryptographic payment architectures, capacity scheduling engines, and full-stack software built by Srijan Sangroula.">
+  <meta property="og:description" content="Explore production marketplace architectures, cryptographic payment pipelines, AI triage systems, and algorithmic software built by Srijan Sangroula.">
   <meta property="og:type" content="website">
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Google Fonts: Space Grotesk, Plus Jakarta Sans, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -27,29 +27,46 @@
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
-            dark: {
-              950: '#04060A',
-              900: '#07090E',
-              850: '#0A0E14',
-              800: '#0D1117',
-              700: '#161B22',
-              600: '#21262D',
-              border: '#30363D',
+            cyber: {
+              950: '#030509',
+              900: '#060A12',
+              850: '#0A0F1D',
+              800: '#0F172A',
+              700: '#172338',
+              600: '#21314D',
+              border: 'rgba(255, 255, 255, 0.08)',
             },
-            primary: {
-              300: '#A5B4FC',
-              400: '#818CF8',
-              500: '#6366F1',
-              600: '#4F46E5',
-              700: '#4338CA',
-            },
-            accent: {
+            neon: {
+              cyan: '#00F0FF',
+              blue: '#38BDF8',
+              purple: '#A855F7',
+              indigo: '#6366F1',
               emerald: '#10B981',
-              cyan: '#06B6D4',
               amber: '#F59E0B',
+              pink: '#EC4899',
+            }
+          },
+          animation: {
+            'glow-pulse': 'glowPulse 3s ease-in-out infinite',
+            'float-slow': 'floatSlow 6s ease-in-out infinite',
+            'radar-spin': 'radarSpin 4s linear infinite',
+          },
+          keyframes: {
+            glowPulse: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+            },
+            floatSlow: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            radarSpin: {
+              '0%': { transform: 'rotate(0deg)' },
+              '100%': { transform: 'rotate(360deg)' },
             }
           }
         }
@@ -61,232 +78,953 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Custom Glow & Background Gradients */
-    .bg-mesh {
+    /* Ultra-sleek Cyber Backgrounds */
+    body {
+      background-color: #030509;
       background-image: 
-        radial-gradient(at 10% 15%, rgba(99, 102, 241, 0.14) 0px, transparent 50%),
-        radial-gradient(at 90% 10%, rgba(16, 185, 129, 0.09) 0px, transparent 50%),
-        radial-gradient(at 50% 85%, rgba(6, 182, 212, 0.08) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 40%),
+        radial-gradient(at 100% 0%, rgba(0, 240, 255, 0.12) 0px, transparent 40%),
+        radial-gradient(at 50% 100%, rgba(168, 85, 247, 0.12) 0px, transparent 45%),
+        radial-gradient(at 80% 50%, rgba(16, 185, 129, 0.08) 0px, transparent 35%);
+      background-attachment: fixed;
     }
-    .glass-card {
-      background: rgba(13, 17, 23, 0.78);
-      backdrop-filter: blur(14px);
+
+    /* Cyber Grid Matrix Pattern */
+    .cyber-grid {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    }
+
+    /* Glass Cards with Holographic Edges */
+    .glass-panel {
+      background: rgba(10, 15, 29, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.08);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .glass-card:hover {
-      border-color: rgba(99, 102, 241, 0.38);
+    .glass-panel:hover {
+      border-color: rgba(0, 240, 255, 0.35);
+      box-shadow: 0 16px 36px -10px rgba(0, 240, 255, 0.12);
       transform: translateY(-2px);
-      box-shadow: 0 16px 36px -12px rgba(99, 102, 241, 0.16);
     }
-    .glass-card-featured {
-      background: linear-gradient(135deg, rgba(16, 22, 34, 0.85) 0%, rgba(13, 17, 23, 0.9) 100%);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(99, 102, 241, 0.25);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    .glass-featured {
+      background: linear-gradient(135deg, rgba(14, 22, 42, 0.88) 0%, rgba(10, 15, 29, 0.85) 100%);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      box-shadow: 0 20px 50px -15px rgba(0, 240, 255, 0.1);
+      position: relative;
     }
-    .glass-card-featured:hover {
-      border-color: rgba(99, 102, 241, 0.5);
-      box-shadow: 0 20px 40px -12px rgba(99, 102, 241, 0.22);
+    .glass-featured:hover {
+      border-color: rgba(0, 240, 255, 0.55);
+      box-shadow: 0 24px 60px -15px rgba(0, 240, 255, 0.2);
     }
-    .gradient-text {
-      background: linear-gradient(135deg, #FFFFFF 25%, #818CF8 70%, #06B6D4 100%);
+
+    /* Cyber Glow Text */
+    .neon-text-cyan {
+      color: #00F0FF;
+      text-shadow: 0 0 24px rgba(0, 240, 255, 0.5);
+    }
+    .neon-text-purple {
+      color: #C084FC;
+      text-shadow: 0 0 24px rgba(168, 85, 247, 0.5);
+    }
+    .neon-gradient {
+      background: linear-gradient(135deg, #FFFFFF 20%, #00F0FF 65%, #A855F7 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .gradient-text-scream {
+    .neon-gradient-fire {
       background: linear-gradient(135deg, #FDE047 0%, #F59E0B 50%, #EF4444 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
+
+    /* Custom Terminal Code Styling */
+    .terminal-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
     }
-    ::-webkit-scrollbar-track {
-      background: #07090E;
+    .terminal-scroll::-webkit-scrollbar-track {
+      background: rgba(3, 5, 9, 0.8);
     }
-    ::-webkit-scrollbar-thumb {
-      background: #21262D;
-      border-radius: 4px;
+    .terminal-scroll::-webkit-scrollbar-thumb {
+      background: #172338;
+      border-radius: 3px;
     }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #30363D;
+
+    /* Mouse Glow Follower */
+    #cursorGlow {
+      pointer-events: none;
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.05) 0%, rgba(99, 102, 241, 0.03) 40%, transparent 70%);
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      transition: width 0.3s, height 0.3s, opacity 0.3s;
     }
   </style>
 </head>
-<body class="bg-dark-900 text-gray-200 font-sans antialiased bg-mesh min-h-screen selection:bg-primary-500 selection:text-white">
+<body class="text-gray-200 font-sans antialiased cyber-grid min-h-screen selection:bg-neon-cyan selection:text-black relative">
 
-  <!-- Navigation Bar -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-dark-900/80 border-b border-dark-border/60">
+  <!-- Interactive Mouse Spotlight Glow -->
+  <div id="cursorGlow"></div>
+
+  <!-- Interactive Neural Background Canvas (Zero Lag, 60fps) -->
+  <canvas id="neuralCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+  <!-- High-Tech Top Telemetry / Status Bar -->
+  <aside aria-label="System telemetry" class="relative z-50 bg-cyber-950/90 border-b border-cyber-border text-[11px] font-mono text-gray-400 px-4 py-1.5 overflow-x-auto whitespace-nowrap">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-6">
+      <div class="flex items-center gap-5">
+        <span class="flex items-center gap-1.5 text-neon-emerald font-semibold">
+          <span class="w-2 h-2 rounded-full bg-neon-emerald animate-ping"></span>
+          SYS.NODE: ACTIVE
+        </span>
+        <span class="hidden sm:inline-block text-gray-500">|</span>
+        <span class="hidden sm:flex items-center gap-1.5 text-gray-300">
+          <i data-lucide="building" class="w-3 h-3 text-neon-cyan"></i>
+          FOUNDER'S OFFICE @ SCREAM IT (BENGALURU)
+        </span>
+        <span class="hidden md:inline-block text-gray-500">|</span>
+        <span class="hidden md:flex items-center gap-1.5 text-gray-300">
+          <i data-lucide="shield" class="w-3 h-3 text-neon-amber"></i>
+          RAZORPAY HMAC-SHA256: VERIFIED
+        </span>
+      </div>
+
+      <!-- Quick SFX Synth Toggle + GitHub Stars Link -->
+      <div class="flex items-center gap-4">
+        <button onclick="toggleSfx()" id="sfxBtn" class="flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-cyber-850 hover:bg-cyber-700 text-neon-cyan border border-cyber-border transition-all cursor-pointer">
+          <i data-lucide="volume-2" id="sfxIcon" class="w-3 h-3"></i>
+          <span id="sfxStatusText">SFX: ON</span>
+        </button>
+        <span class="text-gray-500">|</span>
+        <span class="text-neon-purple font-mono">LATENCY: ~12ms</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Futuristic Navigation Bar -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-cyber-950/80 border-b border-cyber-border">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-primary-600 via-primary-500 to-accent-cyan flex items-center justify-center text-white font-mono font-bold text-base shadow-md group-hover:scale-105 transition-transform">
-          SS
+      <!-- Branded Hex / Monogram -->
+      <a href="#" onclick="playSound('click')" class="flex items-center gap-3 group">
+        <div class="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-neon-indigo via-neon-cyan to-neon-purple p-[1px] shadow-lg shadow-neon-cyan/20 group-hover:shadow-neon-cyan/40 transition-all">
+          <div class="w-full h-full bg-cyber-950 rounded-[11px] flex items-center justify-center font-mono font-extrabold text-sm text-neon-cyan group-hover:scale-105 transition-transform">
+            ⚡SS
+          </div>
         </div>
         <div class="flex flex-col">
-          <span class="font-bold text-base tracking-tight text-white group-hover:text-primary-400 transition-colors leading-tight">
+          <span class="font-display font-bold text-base tracking-tight text-white group-hover:text-neon-cyan transition-colors leading-tight">
             Srijan Sangroula
           </span>
-          <span class="text-[11px] font-mono text-gray-400 leading-tight">Full-Stack & Systems</span>
+          <span class="text-[10px] font-mono text-neon-cyan tracking-wider">FULL-STACK & SYSTEMS</span>
         </div>
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-gray-400">
-        <a href="#about" class="hover:text-white transition-colors">About</a>
-        <a href="#experience" class="hover:text-white transition-colors">Experience</a>
-        <a href="#projects" class="hover:text-white transition-colors">Production Systems</a>
-        <a href="#skills" class="hover:text-white transition-colors">Skills</a>
-        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7 text-xs font-mono uppercase tracking-wider text-gray-400">
+        <a href="#about" onclick="playSound('click')" class="hover:text-neon-cyan transition-colors flex items-center gap-1">
+          <span class="text-neon-cyan">//</span> About
+        </a>
+        <a href="#console" onclick="playSound('click')" class="hover:text-neon-cyan transition-colors flex items-center gap-1">
+          <span class="text-neon-purple">//</span> Live Console
+        </a>
+        <a href="#systems" onclick="playSound('click')" class="hover:text-neon-cyan transition-colors flex items-center gap-1">
+          <span class="text-neon-emerald">//</span> Production Systems
+        </a>
+        <a href="#experience" onclick="playSound('click')" class="hover:text-neon-cyan transition-colors flex items-center gap-1">
+          <span class="text-neon-blue">//</span> Experience
+        </a>
+        <a href="#skills" onclick="playSound('click')" class="hover:text-neon-cyan transition-colors flex items-center gap-1">
+          <span class="text-neon-pink">//</span> Matrix
+        </a>
       </nav>
 
       <!-- Action Buttons -->
       <div class="flex items-center gap-3">
         <a href="https://github.com/srijann07" target="_blank" rel="noopener noreferrer" 
-           class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-dark-700 border border-transparent hover:border-dark-border transition-all" aria-label="GitHub">
-          <i data-lucide="github" class="w-5 h-5"></i>
+           onclick="playSound('click')"
+           class="p-2 rounded-xl text-gray-400 hover:text-white hover:bg-cyber-850 border border-transparent hover:border-cyber-border transition-all" aria-label="GitHub">
+          <i data-lucide="github" class="w-4 h-4"></i>
         </a>
         <a href="https://www.linkedin.com/in/srijan-sangroula-398a74333/" target="_blank" rel="noopener noreferrer" 
-           class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-dark-700 border border-transparent hover:border-dark-border transition-all" aria-label="LinkedIn">
-          <i data-lucide="linkedin" class="w-5 h-5"></i>
+           onclick="playSound('click')"
+           class="p-2 rounded-xl text-gray-400 hover:text-neon-blue hover:bg-cyber-850 border border-transparent hover:border-cyber-border transition-all" aria-label="LinkedIn">
+          <i data-lucide="linkedin" class="w-4 h-4"></i>
         </a>
         <a href="#contact" 
-           class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white bg-primary-600 hover:bg-primary-500 shadow-md shadow-primary-500/20 transition-all">
-          <span>Let's Talk</span>
-          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+           onclick="playSound('click')"
+           class="relative group overflow-hidden px-4 py-2 rounded-xl text-xs font-mono font-semibold text-black bg-neon-cyan hover:bg-white shadow-lg shadow-neon-cyan/30 transition-all">
+          <span class="relative z-10 flex items-center gap-1.5">
+            <span>INIT_CHAT()</span>
+            <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+          </span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="about" class="pt-20 pb-16 px-6 max-w-6xl mx-auto">
-    <!-- Active Status Pill -->
-    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-accent-emerald/10 border border-accent-emerald/30 text-accent-emerald text-xs font-semibold mb-6 shadow-sm shadow-accent-emerald/10">
-      <span class="relative flex h-2.5 w-2.5">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-emerald opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-emerald"></span>
+  <!-- HERO SECTION -->
+  <section id="about" class="relative z-10 pt-20 pb-16 px-6 max-w-6xl mx-auto">
+    <!-- Active Status HUD Badge -->
+    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-cyber-850/90 border border-neon-emerald/40 text-neon-emerald text-xs font-mono font-semibold mb-6 shadow-lg shadow-neon-emerald/10 backdrop-blur-md">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-emerald opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-neon-emerald"></span>
       </span>
-      <span>Full Stack Developer Intern @ Scream It (Founder's Office) · Bengaluru</span>
+      <span>🟢 Full Stack Developer Intern @ Scream It (Founder's Office) · Bengaluru</span>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Left Hero Column -->
       <div class="lg:col-span-8 space-y-6">
-        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
-          Hi, I'm <span class="gradient-text">Srijan</span>.<br>
-          I build commercial-grade <br class="hidden sm:inline">full-stack systems.
-        </h1>
-        <p class="text-lg text-gray-300 leading-relaxed max-w-2xl">
-          Full Stack Developer Intern in the <strong class="text-white font-semibold">Founder's Office at Scream It</strong> and BCA Student at <strong class="text-white font-semibold">CHRIST (Deemed to be University), Bengaluru</strong>. Specializing in high-concurrency payment engines, dynamic capacity allocation, scalable FastAPI/Flask architectures, and modern React interfaces.
+        <div class="space-y-2">
+          <span class="font-mono text-xs text-neon-cyan uppercase tracking-widest block">
+            &gt; SYSTEM_PROFILE: FULL_STACK & SYSTEMS ENGINEER
+          </span>
+          <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] text-white">
+            Architecting <br>
+            <span class="neon-gradient">Commercial AI &amp;</span><br>
+            Production Systems.
+          </h1>
+        </div>
+
+        <p class="text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl font-sans">
+          Full Stack Developer Intern in the <strong class="text-white font-semibold">Founder's Office at Scream It</strong> and BCA Student at <strong class="text-white font-semibold">CHRIST (Deemed to be University), Bengaluru</strong>. Specializing in high-concurrency payment engines, dynamic calendar capacity engines, resilient FastAPI/Flask microservices, and modern React architectures.
         </p>
 
         <!-- Proof Metrics Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 max-w-xl">
-          <div class="glass-card p-4 rounded-xl border border-dark-border">
-            <div class="flex items-center gap-2 text-primary-400 mb-1">
-              <i data-lucide="building-2" class="w-4 h-4"></i>
-              <span class="text-xs uppercase tracking-wider font-mono font-medium text-gray-400">Role</span>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 max-w-2xl">
+          <!-- Metric 1 -->
+          <div class="glass-panel p-4 rounded-2xl relative overflow-hidden group">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-mono text-neon-cyan uppercase tracking-wider">01 // IMPACT</span>
+              <i data-lucide="building-2" class="w-4 h-4 text-neon-cyan"></i>
             </div>
-            <span class="block text-xl font-bold text-white tracking-tight">Founder's Office</span>
-            <span class="text-xs text-gray-400 font-medium">Scream It · Bengaluru</span>
+            <span class="block font-display text-xl font-bold text-white tracking-tight">Founder's Office</span>
+            <span class="text-xs text-gray-400 font-mono">Scream It · Bengaluru</span>
           </div>
 
-          <div class="glass-card p-4 rounded-xl border border-dark-border">
-            <div class="flex items-center gap-2 text-accent-emerald mb-1">
-              <i data-lucide="shield-check" class="w-4 h-4"></i>
-              <span class="text-xs uppercase tracking-wider font-mono font-medium text-gray-400">Scale</span>
+          <!-- Metric 2 -->
+          <div class="glass-panel p-4 rounded-2xl relative overflow-hidden group">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-mono text-neon-emerald uppercase tracking-wider">02 // TRANSACTIONS</span>
+              <i data-lucide="shield-check" class="w-4 h-4 text-neon-emerald"></i>
             </div>
-            <span class="block text-xl font-bold text-white tracking-tight">Production Systems</span>
-            <span class="text-xs text-gray-400 font-medium">Live Payments & APIs</span>
+            <span class="block font-display text-xl font-bold text-white tracking-tight">Production Scale</span>
+            <span class="text-xs text-gray-400 font-mono">Razorpay HMAC-SHA256</span>
           </div>
 
-          <div class="glass-card p-4 rounded-xl border border-dark-border">
-            <div class="flex items-center gap-2 text-accent-cyan mb-1">
-              <i data-lucide="layers" class="w-4 h-4"></i>
-              <span class="text-xs uppercase tracking-wider font-mono font-medium text-gray-400">Domain</span>
+          <!-- Metric 3 -->
+          <div class="glass-panel p-4 rounded-2xl relative overflow-hidden group">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-mono text-neon-purple uppercase tracking-wider">03 // ARCHITECTURE</span>
+              <i data-lucide="cpu" class="w-4 h-4 text-neon-purple"></i>
             </div>
-            <span class="block text-xl font-bold text-white tracking-tight">Full Stack</span>
-            <span class="text-xs text-gray-400 font-mono">FastAPI · React · MongoDB</span>
+            <span class="block font-display text-xl font-bold text-white tracking-tight">Full Stack Stack</span>
+            <span class="text-xs text-gray-400 font-mono">FastAPI · React · Mongo</span>
           </div>
         </div>
 
         <!-- Hero CTAs -->
         <div class="flex flex-wrap gap-4 pt-4">
-          <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-600 hover:bg-primary-500 text-white font-semibold text-sm shadow-lg shadow-primary-500/25 transition-all">
+          <a href="#systems" onclick="playSound('click')" 
+             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-neon-cyan hover:bg-white text-black font-mono font-bold text-xs uppercase tracking-wider shadow-lg shadow-neon-cyan/25 transition-all">
             <i data-lucide="layers" class="w-4 h-4"></i>
-            <span>Explore Production Systems</span>
+            <span>Inspect Systems</span>
           </a>
-          <a href="#experience" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card text-gray-200 hover:text-white font-semibold text-sm border border-dark-border hover:border-primary-500/40 transition-all">
-            <i data-lucide="briefcase" class="w-4 h-4 text-accent-emerald"></i>
-            <span>Founder's Office Experience</span>
+          <a href="#console" onclick="playSound('click')" 
+             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl glass-panel text-gray-200 hover:text-neon-cyan font-mono text-xs uppercase tracking-wider border border-cyber-border hover:border-neon-cyan/40 transition-all">
+            <i data-lucide="terminal" class="w-4 h-4 text-neon-cyan"></i>
+            <span>Interactive Console</span>
+          </a>
+          <a href="https://healthai-deploy.onrender.com" target="_blank" rel="noopener noreferrer" 
+             onclick="playSound('click')"
+             class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl glass-panel text-gray-300 hover:text-white font-mono text-xs uppercase tracking-wider border border-cyber-border transition-all">
+            <span class="w-2 h-2 rounded-full bg-neon-emerald animate-ping"></span>
+            <span>HealthAI Live</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
           </a>
         </div>
       </div>
 
-      <!-- Quick Snapshot Terminal Card -->
+      <!-- Right Column: Interactive AI HUD Card -->
       <div class="lg:col-span-4">
-        <div class="rounded-2xl bg-dark-800 border border-dark-border/80 shadow-2xl overflow-hidden font-mono text-xs">
-          <!-- Terminal Header -->
-          <div class="bg-dark-700/80 px-4 py-3 border-b border-dark-border/60 flex items-center justify-between">
-            <div class="flex items-center gap-1.5">
-              <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
-              <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
-              <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+        <div class="glass-panel rounded-2xl border border-neon-cyan/30 shadow-2xl overflow-hidden relative group">
+          <!-- Top Cyber Bar -->
+          <div class="bg-cyber-900/90 px-4 py-3 border-b border-cyber-border flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+              <span class="text-[11px] font-mono text-gray-400 ml-2">sys_monitor.sh</span>
             </div>
-            <span class="text-gray-400 text-[11px]">srijan@screamit-hq:~</span>
-            <div class="w-6"></div>
+            <span class="text-[10px] font-mono text-neon-emerald bg-neon-emerald/10 px-2 py-0.5 rounded border border-neon-emerald/20">LIVE_FEED</span>
           </div>
-          <!-- Terminal Body -->
-          <div class="p-5 space-y-3 leading-relaxed text-gray-300">
-            <p><span class="text-accent-cyan">$</span> whoami</p>
-            <p class="text-gray-400 text-[11px]">"Srijan Sangroula — Full-Stack & Systems Engineer"</p>
-            
-            <p><span class="text-accent-cyan">$</span> cat current_role.json</p>
-            <div class="text-primary-300 text-[11px] bg-dark-900/60 p-2.5 rounded-lg border border-dark-border/40 space-y-0.5">
-              <p>{"company": "Scream It",</p>
-              <p>&nbsp;"role": "Founder's Office / Full Stack",</p>
-              <p>&nbsp;"location": "Bengaluru · BHIVE Campus",</p>
-              <p>&nbsp;"stack": ["FastAPI", "React", "MongoDB", "Razorpay"]}</p>
+
+          <!-- Radar & Metrics View -->
+          <div class="p-5 space-y-4 font-mono text-xs">
+            <div class="flex items-center justify-between p-2.5 rounded-xl bg-cyber-950/70 border border-cyber-border">
+              <div class="flex items-center gap-2.5">
+                <div class="w-7 h-7 rounded-lg bg-neon-cyan/10 text-neon-cyan flex items-center justify-center font-bold">
+                  <i data-lucide="zap" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <span class="text-white block font-semibold text-xs">Scream It Node</span>
+                  <span class="text-[10px] text-gray-400">BHIVE Campus, Bengaluru</span>
+                </div>
+              </div>
+              <span class="text-neon-emerald font-bold text-[11px]">ACTIVE</span>
             </div>
-            
-            <p><span class="text-accent-cyan">$</span> curl -s https://api.screamit.in/health</p>
-            <p class="text-accent-emerald text-[11px] flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent-emerald"></span>
-              <span>200 OK — Payments & Scheduling Engines Active</span>
-            </p>
-            
-            <p><span class="text-accent-cyan">$</span> git log -1 --pretty=format:"%s"</p>
-            <p class="text-yellow-400 text-[11px]">"feat(payments): Razorpay HMAC-SHA256 verification & GST engine"</p>
+
+            <!-- Real-time code telemetry -->
+            <div class="space-y-2 text-[11px] text-gray-300 bg-cyber-950/80 p-3 rounded-xl border border-cyber-border leading-relaxed">
+              <p><span class="text-neon-purple">const</span> <span class="text-neon-cyan">ENGINE</span> = {</p>
+              <p class="pl-3">payments: <span class="text-neon-amber">"Razorpay Web Checkout"</span>,</p>
+              <p class="pl-3">verification: <span class="text-neon-emerald">"HMAC-SHA256 Server"</span>,</p>
+              <p class="pl-3">leadTime: <span class="text-neon-blue">"14-Day Strict Cutoff"</span>,</p>
+              <p class="pl-3">geo: <span class="text-neon-pink">"Pigeon Maps (14KB)"</span></p>
+              <p>};</p>
+            </div>
+
+            <!-- Health status bars -->
+            <div class="space-y-2 pt-1">
+              <div class="flex justify-between text-[10px] text-gray-400">
+                <span>PAYMENT FRAUD RISK</span>
+                <span class="text-neon-emerald font-bold">0.00% (PROTECTED)</span>
+              </div>
+              <div class="w-full h-1.5 bg-cyber-850 rounded-full overflow-hidden">
+                <div class="w-full h-full bg-neon-emerald rounded-full"></div>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <div class="flex justify-between text-[10px] text-gray-400">
+                <span>API UPTIME & HEALTH</span>
+                <span class="text-neon-cyan font-bold">99.98% OK</span>
+              </div>
+              <div class="w-full h-1.5 bg-cyber-850 rounded-full overflow-hidden">
+                <div class="w-[99%] h-full bg-neon-cyan rounded-full"></div>
+              </div>
+            </div>
+
+            <button onclick="scrollToConsole()" class="w-full py-2.5 rounded-xl bg-cyber-800 hover:bg-neon-cyan hover:text-black text-gray-300 font-mono text-xs font-semibold border border-cyber-border transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <i data-lucide="play" class="w-3.5 h-3.5 text-neon-cyan"></i>
+              <span>TEST SIMULATED ENGINES</span>
+            </button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Work Experience Section -->
-  <section id="experience" class="py-16 px-6 max-w-6xl mx-auto border-t border-dark-border/40">
+  <!-- INTERACTIVE AI & SYSTEMS CONSOLE (THE CENTERPIECE) -->
+  <section id="console" class="py-16 px-6 max-w-6xl mx-auto relative z-10 border-t border-cyber-border">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+      <div>
+        <div class="flex items-center gap-2 text-neon-purple font-mono text-xs uppercase tracking-widest font-semibold mb-1">
+          <i data-lucide="terminal" class="w-4 h-4"></i>
+          <span>Interactive Execution Environment</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Live Systems Command Center
+        </h2>
+      </div>
+      <p class="text-xs sm:text-sm text-gray-400 mt-2 md:mt-0 max-w-md font-mono">
+        Test real architectural logic in browser: cryptographic payment verification, Scikit-Learn triage inference, and maze pathfinding.
+      </p>
+    </div>
+
+    <!-- The Master Terminal Container -->
+    <div class="glass-featured rounded-2xl overflow-hidden border border-cyber-border shadow-2xl">
+      <!-- Terminal Header / Tabs -->
+      <div class="bg-cyber-900/90 px-4 py-2 border-b border-cyber-border flex flex-wrap items-center justify-between gap-3">
+        <!-- Interactive Tabs -->
+        <div class="flex items-center gap-2 font-mono text-xs">
+          <button id="tabBtn1" onclick="switchConsoleTab(1)" 
+                  class="px-3.5 py-1.5 rounded-lg bg-neon-cyan text-black font-semibold flex items-center gap-1.5 transition-all cursor-pointer">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+            <span>scream_payments.py</span>
+          </button>
+          <button id="tabBtn2" onclick="switchConsoleTab(2)" 
+                  class="px-3.5 py-1.5 rounded-lg bg-cyber-850 hover:bg-cyber-700 text-gray-300 font-medium flex items-center gap-1.5 transition-all cursor-pointer">
+            <i data-lucide="activity" class="w-3.5 h-3.5 text-neon-purple"></i>
+            <span>healthai_triage.py</span>
+          </button>
+          <button id="tabBtn3" onclick="switchConsoleTab(3)" 
+                  class="px-3.5 py-1.5 rounded-lg bg-cyber-850 hover:bg-cyber-700 text-gray-300 font-medium flex items-center gap-1.5 transition-all cursor-pointer">
+            <i data-lucide="compass" class="w-3.5 h-3.5 text-neon-emerald"></i>
+            <span>micromouse_flood.py</span>
+          </button>
+        </div>
+
+        <!-- Terminal Status Pill -->
+        <div class="flex items-center gap-2 text-[11px] font-mono text-gray-400">
+          <span class="w-2 h-2 rounded-full bg-neon-emerald animate-pulse"></span>
+          <span>SANDBOX: READY</span>
+        </div>
+      </div>
+
+      <!-- Tab 1: Scream It Payments Verification -->
+      <div id="tabContent1" class="p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-6 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-white flex items-center gap-2 font-display">
+              <i data-lucide="shield" class="w-4 h-4 text-neon-cyan"></i>
+              <span>Razorpay HMAC-SHA256 Cryptographic Engine</span>
+            </h3>
+            <span class="text-[10px] font-mono text-neon-cyan bg-neon-cyan/10 px-2 py-0.5 rounded border border-neon-cyan/20">Production Flow</span>
+          </div>
+          <p class="text-xs text-gray-300 leading-relaxed font-sans">
+            Guarantees zero payment fraud across Scream It's 3 commercial checkout pipelines. Before webhook dispatch or campaign date booking, the backend calculates a keyed hash of <code class="text-neon-cyan">order_id + "|" + payment_id</code> using the server's private secret and validates matching signatures.
+          </p>
+
+          <!-- Code Snippet -->
+          <div class="bg-cyber-950/90 rounded-xl p-4 border border-cyber-border font-mono text-[11px] text-gray-300 overflow-x-auto">
+            <p class="text-gray-500"># Verify Razorpay signature server-side</p>
+            <p><span class="text-neon-purple">def</span> <span class="text-neon-blue">verify_payment_signature</span>(order_id, payment_id, sig, secret):</p>
+            <p class="pl-4">payload = f<span class="text-neon-amber">"{order_id}|{payment_id}"</span>.encode(<span class="text-neon-emerald">'utf-8'</span>)</p>
+            <p class="pl-4">expected = hmac.new(secret.encode(), payload, hashlib.sha256).hexdigest()</p>
+            <p class="pl-4"><span class="text-neon-purple">if</span> hmac.compare_digest(expected, sig):</p>
+            <p class="pl-8"><span class="text-neon-purple">return</span> {<span class="text-neon-amber">"status"</span>: <span class="text-neon-emerald">"VERIFIED"</span>, <span class="text-neon-amber">"gst_tax_split"</span>: calc_18pct_gst()}</p>
+          </div>
+
+          <!-- Execution Trigger -->
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <button onclick="runPaymentsSimulation()" 
+                    class="px-5 py-2.5 rounded-xl bg-neon-cyan hover:bg-white text-black font-mono font-bold text-xs uppercase tracking-wider shadow-lg shadow-neon-cyan/20 transition-all flex items-center gap-2 cursor-pointer">
+              <i data-lucide="play" class="w-4 h-4"></i>
+              <span>Simulate HMAC Signature Verification</span>
+            </button>
+            <span class="text-[11px] font-mono text-gray-400">Order: #ORD-9821 · ₹14,999</span>
+          </div>
+        </div>
+
+        <!-- Terminal Output Window -->
+        <div class="lg:col-span-6 bg-cyber-950 rounded-xl p-4 border border-cyber-border font-mono text-xs flex flex-col h-[320px]">
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-cyber-border text-[11px] text-gray-500">
+            <span>TERMINAL LOG (stdout)</span>
+            <span id="paymentsStatus" class="text-neon-cyan">READY</span>
+          </div>
+          <div id="paymentsTerminal" class="space-y-1.5 overflow-y-auto terminal-scroll flex-1 text-gray-300 text-[11px] leading-relaxed">
+            <p class="text-gray-500">// Ready to simulate commercial order webhook from Razorpay...</p>
+            <p class="text-gray-500">// Click [Simulate HMAC Signature Verification] to test cryptographic verification.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: HealthAI ML Inference -->
+      <div id="tabContent2" class="p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 hidden">
+        <div class="lg:col-span-6 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-white flex items-center gap-2 font-display">
+              <i data-lucide="activity" class="w-4 h-4 text-neon-purple"></i>
+              <span>Scikit-Learn ML Clinical Triage Pipeline</span>
+            </h3>
+            <span class="text-[10px] font-mono text-neon-purple bg-neon-purple/10 px-2 py-0.5 rounded border border-neon-purple/20">HealthAI Engine</span>
+          </div>
+          <p class="text-xs text-gray-300 leading-relaxed font-sans">
+            Evaluates multi-variable patient vital signs and symptom vectors to compute priority triage classification (Level 1 Resuscitation to Level 5 Non-Urgent) and routes reports to verified clinical queues.
+          </p>
+
+          <!-- Code Snippet -->
+          <div class="bg-cyber-950/90 rounded-xl p-4 border border-cyber-border font-mono text-[11px] text-gray-300 overflow-x-auto">
+            <p class="text-gray-500"># Model Feature Vectorization & Prediction</p>
+            <p><span class="text-neon-purple">def</span> <span class="text-neon-blue">predict_clinical_triage</span>(vitals_dict):</p>
+            <p class="pl-4">features = encode_vitals(vitals_dict)</p>
+            <p class="pl-4">probabilities = triage_classifier.predict_proba([features])[0]</p>
+            <p class="pl-4">triage_level = np.argmax(probabilities) + 1</p>
+            <p class="pl-4">generate_pdf_report(patient_id, triage_level, probabilities)</p>
+            <p class="pl-4"><span class="text-neon-purple">return</span> {<span class="text-neon-amber">"level"</span>: triage_level, <span class="text-neon-amber">"confidence"</span>: float(np.max(probabilities))}</p>
+          </div>
+
+          <!-- Execution Trigger -->
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <button onclick="runHealthAISimulation()" 
+                    class="px-5 py-2.5 rounded-xl bg-neon-purple hover:bg-white text-black font-mono font-bold text-xs uppercase tracking-wider shadow-lg shadow-neon-purple/20 transition-all flex items-center gap-2 cursor-pointer">
+              <i data-lucide="play" class="w-4 h-4"></i>
+              <span>Simulate ML Triage Inference</span>
+            </button>
+            <span class="text-[11px] font-mono text-gray-400">Vitals: HR 108, BP 162/98, O2 93%</span>
+          </div>
+        </div>
+
+        <!-- Terminal Output Window -->
+        <div class="lg:col-span-6 bg-cyber-950 rounded-xl p-4 border border-cyber-border font-mono text-xs flex flex-col h-[320px]">
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-cyber-border text-[11px] text-gray-500">
+            <span>HEALTHAI ML LOG (stdout)</span>
+            <span id="healthaiStatus" class="text-neon-purple">READY</span>
+          </div>
+          <div id="healthaiTerminal" class="space-y-1.5 overflow-y-auto terminal-scroll flex-1 text-gray-300 text-[11px] leading-relaxed">
+            <p class="text-gray-500">// Ready to process patient triage vector through Random Forest model...</p>
+            <p class="text-gray-500">// Click [Simulate ML Triage Inference] to trigger feature extraction and report generation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Micromouse Flood Fill -->
+      <div id="tabContent3" class="p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 hidden">
+        <div class="lg:col-span-6 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-white flex items-center gap-2 font-display">
+              <i data-lucide="compass" class="w-4 h-4 text-neon-emerald"></i>
+              <span>Flood Fill 16x16 IEEE Maze Pathfinding</span>
+            </h3>
+            <span class="text-[10px] font-mono text-neon-emerald bg-neon-emerald/10 px-2 py-0.5 rounded border border-neon-emerald/20">Algorithmic Engine</span>
+          </div>
+          <p class="text-xs text-gray-300 leading-relaxed font-sans">
+            Autonomous robotic sensory mapping inside competitive 16x16 mazes. Maintains a dynamic potential field matrix updated via Breadth-First search queues every time a new wall obstacle is scanned.
+          </p>
+
+          <!-- Code Snippet -->
+          <div class="bg-cyber-950/90 rounded-xl p-4 border border-cyber-border font-mono text-[11px] text-gray-300 overflow-x-auto">
+            <p class="text-gray-500"># Flood Fill Distance Recalculation</p>
+            <p><span class="text-neon-purple">def</span> <span class="text-neon-blue">recalculate_manhattan_field</span>(grid, walls, current_cell):</p>
+            <p class="pl-4">queue = deque([current_cell])</p>
+            <p class="pl-4"><span class="text-neon-purple">while</span> queue:</p>
+            <p class="pl-8">cell = queue.popleft()</p>
+            <p class="pl-8">min_neighbor_dist = min([grid[n] <span class="text-neon-purple">for</span> n <span class="text-neon-purple">in</span> open_neighbors(cell, walls)])</p>
+            <p class="pl-8"><span class="text-neon-purple">if</span> grid[cell] != min_neighbor_dist + 1:</p>
+            <p class="pl-12">grid[cell] = min_neighbor_dist + 1</p>
+            <p class="pl-12">queue.extend(open_neighbors(cell, walls))</p>
+          </div>
+
+          <!-- Execution Trigger -->
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <button onclick="runMazeSimulation()" 
+                    class="px-5 py-2.5 rounded-xl bg-neon-emerald hover:bg-white text-black font-mono font-bold text-xs uppercase tracking-wider shadow-lg shadow-neon-emerald/20 transition-all flex items-center gap-2 cursor-pointer">
+              <i data-lucide="play" class="w-4 h-4"></i>
+              <span>Simulate Autonomous Pathfinding</span>
+            </button>
+            <span class="text-[11px] font-mono text-gray-400">Target Center: (7,7) & (8,8)</span>
+          </div>
+        </div>
+
+        <!-- Terminal Output Window -->
+        <div class="lg:col-span-6 bg-cyber-950 rounded-xl p-4 border border-cyber-border font-mono text-xs flex flex-col h-[320px]">
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-cyber-border text-[11px] text-gray-500">
+            <span>MICROMOUSE SIM LOG (stdout)</span>
+            <span id="mazeStatus" class="text-neon-emerald">READY</span>
+          </div>
+          <div id="mazeTerminal" class="space-y-1.5 overflow-y-auto terminal-scroll flex-1 text-gray-300 text-[11px] leading-relaxed">
+            <p class="text-gray-500">// Ready to solve 16x16 maze matrix with dynamic distance updates...</p>
+            <p class="text-gray-500">// Click [Simulate Autonomous Pathfinding] to run pathfinding iterations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTION SYSTEMS SECTION -->
+  <section id="systems" class="py-16 px-6 max-w-6xl mx-auto relative z-10 border-t border-cyber-border">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+      <div>
+        <span class="text-neon-cyan font-mono text-xs tracking-wider uppercase font-semibold">Production Architecture</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-1">
+          Featured Engineering Systems
+        </h2>
+      </div>
+      <p class="text-sm text-gray-400 mt-2 md:mt-0 max-w-md font-mono">
+        Commercial marketplace pipelines, cryptographic verification, distributed scheduling engines, and AI applications.
+      </p>
+    </div>
+
+    <div class="space-y-10">
+      <!-- FLAGSHIP SYSTEM 01: SCREAM IT -->
+      <div class="glass-featured rounded-3xl p-7 sm:p-9 border border-neon-cyan/40 relative overflow-hidden group">
+        <!-- Background Neon Glow -->
+        <div class="absolute -top-32 -right-32 w-80 h-80 bg-neon-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Header -->
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-neon-amber via-neon-cyan to-neon-purple p-[1px]">
+              <div class="w-full h-full bg-cyber-950 rounded-[15px] flex items-center justify-center text-neon-cyan">
+                <i data-lucide="zap" class="w-6 h-6"></i>
+              </div>
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2.5">
+                <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Scream It</h3>
+                <span class="text-xs font-mono px-3 py-0.5 rounded-full bg-neon-amber/15 border border-neon-amber/40 text-neon-amber font-semibold">
+                  SYS-01 // FLAGSHIP PRODUCTION SYSTEM
+                </span>
+              </div>
+              <span class="text-xs font-mono text-gray-400">The Offline Campaign Marketplace — Coffee-sleeve advertising network in Bengaluru</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neon-emerald/10 border border-neon-emerald/40 text-neon-emerald text-xs font-mono font-medium">
+              <span class="w-2 h-2 rounded-full bg-neon-emerald animate-ping"></span>
+              Live Commercial Infrastructure
+            </span>
+          </div>
+        </div>
+
+        <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 font-sans">
+          Architected and engineered the core full-stack platform powering Bengaluru's hyper-local offline media marketplace. Developed the complete commercial checkout pipeline with Razorpay and cryptographic verification, complex dynamic calendar capacity engines, and geospatial café discovery working directly alongside Founder Rohan Mudugal.
+        </p>
+
+        <!-- Visual Architecture Flow Diagram -->
+        <div class="mb-8 p-4 sm:p-5 rounded-2xl bg-cyber-950/80 border border-cyber-border">
+          <div class="text-[11px] font-mono text-neon-cyan uppercase tracking-wider mb-3 flex items-center gap-2">
+            <i data-lucide="git-merge" class="w-3.5 h-3.5"></i>
+            <span>COMMERCIAL DATAFLOW ARCHITECTURE</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-center text-xs font-mono">
+            <div class="p-2.5 rounded-xl bg-cyber-900 border border-cyber-border flex flex-col justify-center">
+              <span class="text-white font-bold">Client UI</span>
+              <span class="text-[10px] text-gray-400">React 18 + Tailwind</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-cyber-900 border border-cyber-border flex flex-col justify-center">
+              <span class="text-neon-cyan font-bold">API Gateway</span>
+              <span class="text-[10px] text-gray-400">FastAPI / Uvicorn</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-cyber-900 border border-neon-amber/40 flex flex-col justify-center">
+              <span class="text-neon-amber font-bold">Razorpay Web</span>
+              <span class="text-[10px] text-gray-400">3 Checkout Flows</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-cyber-900 border border-neon-emerald/40 flex flex-col justify-center">
+              <span class="text-neon-emerald font-bold">HMAC Verify</span>
+              <span class="text-[10px] text-gray-400">Server Secret Hash</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-cyber-900 border border-neon-blue/40 flex flex-col justify-center">
+              <span class="text-neon-blue font-bold">Capacity Lock</span>
+              <span class="text-[10px] text-gray-400">14-Day Lead Rules</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-cyber-900 border border-neon-purple/40 flex flex-col justify-center">
+              <span class="text-neon-purple font-bold">Data Store</span>
+              <span class="text-[10px] text-gray-400">MongoDB Atlas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Deep Technical Architecture Breakdown Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+          <!-- Card 1 -->
+          <div class="bg-cyber-900/90 p-5 rounded-2xl border border-cyber-border">
+            <div class="flex items-center gap-2 text-neon-amber text-xs font-mono font-bold uppercase tracking-wider mb-2">
+              <i data-lucide="credit-card" class="w-4 h-4"></i>
+              <span>Commercial Payments & HMAC</span>
+            </div>
+            <p class="text-xs text-gray-400 leading-relaxed mb-3 font-sans">
+              Integrated Razorpay Standard Web Checkout across 3 distinct commercial flows: Advertiser campaign bookings, Café onboarding fees (with coupon logic e.g. <code class="text-neon-amber">EARLYBIRD</code>), and flat ₹4,999 Design Studio quote checkouts.
+            </p>
+            <div class="text-[11px] font-mono text-gray-300 bg-cyber-950 p-2.5 rounded-xl border border-cyber-border">
+              <span class="text-neon-emerald">✓</span> Server-side HMAC-SHA256 verification (<code class="text-neon-amber">order_id|payment_id</code>) & automated 18% GST engine.
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-cyber-900/90 p-5 rounded-2xl border border-cyber-border">
+            <div class="flex items-center gap-2 text-neon-blue text-xs font-mono font-bold uppercase tracking-wider mb-2">
+              <i data-lucide="calendar" class="w-4 h-4"></i>
+              <span>Capacity & Scheduling Engine</span>
+            </div>
+            <p class="text-xs text-gray-400 leading-relaxed mb-3 font-sans">
+              Engineered a custom calendar booking system enforcing complex business constraints: strict 14-day printing lead time cutoff (waivable only if pre-printed sleeve stock covers order), per-café daily cup capacity limits, and distributed sleeve splits across dates.
+            </p>
+            <div class="text-[11px] font-mono text-gray-300 bg-cyber-950 p-2.5 rounded-xl border border-cyber-border">
+              <span class="text-neon-cyan">✓</span> Real-time date hold/release concurrency locks preventing double-booking café slots.
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-cyber-900/90 p-5 rounded-2xl border border-cyber-border">
+            <div class="flex items-center gap-2 text-neon-cyan text-xs font-mono font-bold uppercase tracking-wider mb-2">
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+              <span>Geospatial Discovery & Cart Sync</span>
+            </div>
+            <p class="text-xs text-gray-400 leading-relaxed mb-3 font-sans">
+              Built an interactive, zero-overhead location map for Bengaluru cafés using Pigeon Maps (~14KB bundle footprint, zero Google billing lock-in) paired with a 5-photo café showcase gallery rendering high-res media without layout shifts.
+            </p>
+            <div class="text-[11px] font-mono text-gray-300 bg-cyber-950 p-2.5 rounded-xl border border-cyber-border">
+              <span class="text-neon-purple">✓</span> Guest-to-authenticated cart state migration (preserves café dates upon login).
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Stack Tags -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="px-2.5 py-1 rounded-lg bg-cyber-800 text-xs font-mono text-neon-cyan border border-cyber-border">Python 3.11</span>
+          <span class="px-2.5 py-1 rounded-lg bg-cyber-800 text-xs font-mono text-neon-cyan border border-cyber-border">FastAPI</span>
+          <span class="px-2.5 py-1 rounded-lg bg-cyber-800 text-xs font-mono text-neon-cyan border border-cyber-border">React 18</span>
+          <span class="px-2.5 py-1 rounded-lg bg-cyber-800 text-xs font-mono text-neon-cyan border border-cyber-border">MongoDB Atlas</span>
+          <span class="px-2.5 py-1 rounded-lg bg-cyber-800 text-xs font-mono text-neon-amber border border-neon-amber/30">Razorpay Web API</span>
+          <span class="px-2.5 py-1 rounded-lg bg-cyber-800 text-xs font-mono text-neon-emerald border border-neon-emerald/30">HMAC-SHA256</span>
+          <span class="px-2.5 py-1 rounded-lg bg-cyber-800 text-xs font-mono text-gray-300 border border-cyber-border">Tailwind CSS</span>
+          <span class="px-2.5 py-1 rounded-lg bg-cyber-800 text-xs font-mono text-gray-300 border border-cyber-border">Pigeon Maps</span>
+          <span class="px-2.5 py-1 rounded-lg bg-cyber-800 text-xs font-mono text-neon-purple border border-neon-purple/30">Emergent Cloud Platform</span>
+        </div>
+
+        <!-- Highlights Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-cyber-border text-xs text-gray-300 font-mono">
+          <div class="flex flex-wrap items-center gap-4">
+            <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-neon-emerald"></i> 3 Commercial Checkout Pipelines</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="lock" class="w-3.5 h-3.5 text-neon-amber"></i> Zero-Fraud Signature Verification</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-neon-cyan"></i> 14-Day Production Lead Logic</span>
+          </div>
+          <span class="text-neon-cyan text-[11px] flex items-center gap-1">
+            <i data-lucide="map-pin" class="w-3 h-3"></i> Bengaluru, India
+          </span>
+        </div>
+      </div>
+
+      <!-- SYSTEM 02: HEALTHAI -->
+      <div class="glass-panel rounded-3xl p-7 sm:p-9 border border-cyber-border hover:border-neon-purple/40 transition-all">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+          <div class="flex items-center gap-3.5">
+            <div class="w-11 h-11 rounded-2xl bg-neon-purple/20 border border-neon-purple/30 flex items-center justify-center text-neon-purple">
+              <i data-lucide="activity" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <h3 class="font-display text-2xl font-bold text-white tracking-tight">HealthAI — Clinical Risk Assessment & Triage System</h3>
+                <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-neon-purple/15 border border-neon-purple/30 text-neon-purple font-semibold">SYS-02</span>
+              </div>
+              <span class="text-xs font-mono text-gray-400">Full-Stack Backend & Machine Learning · Python, Flask, SQLAlchemy, Scikit-Learn, Docker</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neon-emerald/10 border border-neon-emerald/30 text-neon-emerald text-xs font-mono font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-neon-emerald animate-ping"></span>
+              24/7 Cloud Deployed
+            </span>
+          </div>
+        </div>
+
+        <p class="text-gray-300 text-sm leading-relaxed mb-6 font-sans">
+          A production-oriented clinical screening and patient-doctor workflow platform. Ingests patient symptoms and vitals, computes multi-class risk assessments via a Scikit-Learn machine learning pipeline, and routes reports into a clinician verification queue with automated dynamic PDF clinical report generation.
+        </p>
+
+        <!-- Architecture Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div class="bg-cyber-950/80 p-4 rounded-xl border border-cyber-border">
+            <div class="flex items-center gap-2 text-neon-purple text-xs font-mono font-bold uppercase tracking-wider mb-1">
+              <i data-lucide="shield-check" class="w-4 h-4"></i>
+              <span>Enterprise Auth & RBAC</span>
+            </div>
+            <p class="text-xs text-gray-400 font-sans">
+              Strict multi-role authorization (Patient, Doctor, Admin) utilizing JWT cookies/headers, bcrypt password hashing, and CSRF protection.
+            </p>
+          </div>
+
+          <div class="bg-cyber-950/80 p-4 rounded-xl border border-cyber-border">
+            <div class="flex items-center gap-2 text-neon-cyan text-xs font-mono font-bold uppercase tracking-wider mb-1">
+              <i data-lucide="database" class="w-4 h-4"></i>
+              <span>Resilient Data Layer</span>
+            </div>
+            <p class="text-xs text-gray-400 font-sans">
+              SQLAlchemy 2.0 ORM with relational schema (Appointments, Doctors, Vitals, Audit Logs). Built-in automated fallback to SQLite if remote PostgreSQL is unreachable.
+            </p>
+          </div>
+
+          <div class="bg-cyber-950/80 p-4 rounded-xl border border-cyber-border">
+            <div class="flex items-center gap-2 text-neon-emerald text-xs font-mono font-bold uppercase tracking-wider mb-1">
+              <i data-lucide="cpu" class="w-4 h-4"></i>
+              <span>ML & Report Engine</span>
+            </div>
+            <p class="text-xs text-gray-400 font-sans">
+              Automated feature encoding and inference using joblib models, combined with dynamic PDF clinical report synthesis via ReportLab.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tech Stack Tags -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-gray-300 border border-cyber-border">Python 3.11</span>
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-gray-300 border border-cyber-border">Flask 3.0</span>
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-gray-300 border border-cyber-border">SQLAlchemy 2.0</span>
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-gray-300 border border-cyber-border">PostgreSQL</span>
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-gray-300 border border-cyber-border">Docker</span>
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-gray-300 border border-cyber-border">Gunicorn</span>
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-neon-purple border border-neon-purple/30">Scikit-Learn</span>
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-gray-300 border border-cyber-border">JWT Auth</span>
+        </div>
+
+        <!-- Links -->
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-cyber-border">
+          <div class="flex items-center gap-3">
+            <a href="https://healthai-deploy.onrender.com" target="_blank" rel="noopener noreferrer"
+               onclick="playSound('click')"
+               class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-purple hover:bg-white text-black font-mono font-bold text-xs shadow-md transition-all">
+              <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+              <span>Open Live Demo</span>
+            </a>
+            <a href="https://github.com/srijann07/healthai-deploy" target="_blank" rel="noopener noreferrer"
+               onclick="playSound('click')"
+               class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyber-800 hover:bg-cyber-700 text-gray-200 font-mono text-xs border border-cyber-border transition-all">
+              <i data-lucide="github" class="w-3.5 h-3.5"></i>
+              <span>GitHub Repo</span>
+            </a>
+          </div>
+
+          <div class="text-xs text-gray-400 font-mono">
+            <span>Demo: </span>
+            <code class="text-neon-cyan">dr.sharma@healthai.local</code> / <code class="text-neon-cyan">Doctor@12345</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- SYSTEM 03: MICROMOUSE SIMULATOR -->
+      <div class="glass-panel rounded-3xl p-7 sm:p-9 border border-cyber-border hover:border-neon-emerald/40 transition-all">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+          <div class="flex items-center gap-3.5">
+            <div class="w-11 h-11 rounded-2xl bg-neon-emerald/20 border border-neon-emerald/30 flex items-center justify-center text-neon-emerald">
+              <i data-lucide="compass" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <h3 class="font-display text-2xl font-bold text-white tracking-tight">Micromouse Maze Simulator — Autonomous Pathfinding Engine</h3>
+                <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-neon-emerald/15 border border-neon-emerald/30 text-neon-emerald font-semibold">SYS-03</span>
+              </div>
+              <span class="text-xs font-mono text-gray-400">Algorithmic Engineering & Graph Theory · Python, Flood Fill Algorithm, BFS/DFS</span>
+            </div>
+          </div>
+
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neon-emerald/10 border border-neon-emerald/30 text-neon-emerald text-xs font-mono font-medium">
+            Robotics Algorithms
+          </span>
+        </div>
+
+        <p class="text-gray-300 text-sm leading-relaxed mb-6 font-sans">
+          An algorithmic simulation engine modeling autonomous robotic navigation inside standard 16x16 competitive IEEE Micromouse mazes. Implemented classic robotic sensory mapping, wall detection logic, dynamic distance updating, and shortest-path optimization.
+        </p>
+
+        <!-- Highlights Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div class="bg-cyber-950/80 p-4 rounded-xl border border-cyber-border">
+            <div class="flex items-center gap-2 text-neon-emerald text-xs font-mono font-bold uppercase tracking-wider mb-1">
+              <i data-lucide="cpu" class="w-4 h-4"></i>
+              <span>Flood Fill Optimization</span>
+            </div>
+            <p class="text-xs text-gray-400 font-sans">
+              Engineered dynamic Manhattan-distance matrix calculations that recalculate optimal routes in real-time as unknown wall obstacles are detected.
+            </p>
+          </div>
+
+          <div class="bg-cyber-950/80 p-4 rounded-xl border border-cyber-border">
+            <div class="flex items-center gap-2 text-neon-cyan text-xs font-mono font-bold uppercase tracking-wider mb-1">
+              <i data-lucide="git-branch" class="w-4 h-4"></i>
+              <span>Graph Traversal & Search</span>
+            </div>
+            <p class="text-xs text-gray-400 font-sans">
+              Implemented Breadth-First Search (BFS) and Depth-First Search (DFS) routines with dead-end pruning and return-to-origin exploration passes.
+            </p>
+          </div>
+
+          <div class="bg-cyber-950/80 p-4 rounded-xl border border-cyber-border">
+            <div class="flex items-center gap-2 text-neon-purple text-xs font-mono font-bold uppercase tracking-wider mb-1">
+              <i data-lucide="eye" class="w-4 h-4"></i>
+              <span>Visual Simulation</span>
+            </div>
+            <p class="text-xs text-gray-400 font-sans">
+              Built interactive step-by-step maze solving visualization rendering cell states, robot orientation, and cumulative traversal metrics.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tech Stack Tags -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-neon-emerald border border-neon-emerald/30">Python</span>
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-neon-emerald border border-neon-emerald/30">Flood Fill Algorithm</span>
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-gray-300 border border-cyber-border">Graph Theory</span>
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-gray-300 border border-cyber-border">BFS / DFS</span>
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-gray-300 border border-cyber-border">Robotics Simulation</span>
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-gray-300 border border-cyber-border">Optimization</span>
+        </div>
+
+        <!-- Links -->
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-cyber-border">
+          <a href="https://github.com/srijann07/micromouse-maze-simulator" target="_blank" rel="noopener noreferrer"
+             onclick="playSound('click')"
+             class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyber-800 hover:bg-cyber-700 text-gray-200 font-mono text-xs border border-cyber-border transition-all">
+            <i data-lucide="github" class="w-3.5 h-3.5"></i>
+            <span>GitHub Repository</span>
+          </a>
+          <span class="text-xs font-mono text-gray-400">IEEE Standard 16x16 Maze Specification</span>
+        </div>
+      </div>
+
+      <!-- SYSTEM 04: STUDENT DASHBOARD -->
+      <div class="glass-panel rounded-3xl p-7 sm:p-9 border border-cyber-border hover:border-neon-pink/40 transition-all">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+          <div class="flex items-center gap-3.5">
+            <div class="w-11 h-11 rounded-2xl bg-neon-pink/20 border border-neon-pink/30 flex items-center justify-center text-neon-pink">
+              <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <h3 class="font-display text-2xl font-bold text-white tracking-tight">Student Analytics & Performance Intelligence Dashboard</h3>
+                <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-neon-pink/15 border border-neon-pink/30 text-neon-pink font-semibold">SYS-04</span>
+              </div>
+              <span class="text-xs font-mono text-gray-400">Data Engineering & Analytics · Python, Streamlit, Pandas, Plotly</span>
+            </div>
+          </div>
+
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neon-pink/10 border border-neon-pink/30 text-neon-pink text-xs font-mono font-medium">
+            Data Intelligence
+          </span>
+        </div>
+
+        <p class="text-gray-300 text-sm leading-relaxed mb-6 font-sans">
+          Architected an interactive statistical data dashboard tracking academic grade distributions, attendance-to-performance correlations, and cohort trends. Provides educators with automated at-risk student indicators, percentile rankings, and dynamic data filtering.
+        </p>
+
+        <!-- Tech Stack Tags -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-gray-300 border border-cyber-border">Python</span>
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-neon-pink border border-neon-pink/30">Streamlit</span>
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-neon-pink border border-neon-pink/30">Pandas</span>
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-neon-pink border border-neon-pink/30">Plotly</span>
+          <span class="px-2.5 py-1 rounded-md bg-cyber-800 text-xs font-mono text-gray-300 border border-cyber-border">Statistical Analytics</span>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-cyber-border">
+          <a href="https://github.com/srijann07/student-dashboard" target="_blank" rel="noopener noreferrer"
+             onclick="playSound('click')"
+             class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyber-800 hover:bg-cyber-700 text-gray-200 font-mono text-xs border border-cyber-border transition-all">
+            <i data-lucide="github" class="w-3.5 h-3.5"></i>
+            <span>GitHub Repository</span>
+          </a>
+          <span class="text-xs font-mono text-gray-400">Predictive Cohort Analytics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGINEERING EXPERIENCE SECTION -->
+  <section id="experience" class="py-16 px-6 max-w-6xl mx-auto relative z-10 border-t border-cyber-border">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
       <!-- Work Experience Column -->
       <div class="lg:col-span-7">
         <div class="mb-8">
-          <span class="text-primary-400 font-mono text-xs tracking-wider uppercase font-semibold">Career History</span>
-          <h2 class="text-3xl font-bold tracking-tight text-white mt-1">Engineering Experience</h2>
+          <span class="text-neon-cyan font-mono text-xs tracking-wider uppercase font-semibold">Career History</span>
+          <h2 class="font-display text-3xl font-extrabold tracking-tight text-white mt-1">Work Experience</h2>
         </div>
 
         <div class="space-y-6">
           <!-- Role 1: Scream It (Active / Primary) -->
-          <div class="glass-card-featured p-6 sm:p-7 rounded-2xl relative pl-8 before:absolute before:left-4 before:top-8 before:bottom-0 before:w-0.5 before:bg-accent-emerald/40 border border-primary-500/30">
-            <span class="absolute left-2.5 top-7 w-3.5 h-3.5 rounded-full bg-accent-emerald border-2 border-dark-900 shadow-sm shadow-accent-emerald/50"></span>
+          <div class="glass-featured p-6 sm:p-7 rounded-2xl relative pl-8 before:absolute before:left-4 before:top-8 before:bottom-0 before:w-0.5 before:bg-neon-emerald/40 border border-neon-cyan/40">
+            <span class="absolute left-2.5 top-7 w-3.5 h-3.5 rounded-full bg-neon-emerald border-2 border-cyber-950 shadow-md shadow-neon-emerald/60"></span>
             
             <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
               <div>
-                <h3 class="font-bold text-lg text-white tracking-tight">Full Stack Developer Intern — Founder's Office</h3>
-                <p class="text-xs font-semibold text-primary-400 mt-0.5">Scream It · Bengaluru, India (Hybrid / BHIVE Campus)</p>
+                <h3 class="font-display font-bold text-lg text-white tracking-tight">Full Stack Developer Intern — Founder's Office</h3>
+                <p class="text-xs font-semibold text-neon-cyan mt-0.5 font-mono">Scream It · Bengaluru, India (Hybrid / BHIVE Campus)</p>
               </div>
               <div class="flex items-center gap-2">
-                <span class="text-[11px] font-mono text-accent-emerald bg-accent-emerald/10 px-2.5 py-1 rounded-full border border-accent-emerald/30 font-semibold flex items-center gap-1.5">
-                  <span class="w-1.5 h-1.5 rounded-full bg-accent-emerald animate-ping"></span>
+                <span class="text-[11px] font-mono text-neon-emerald bg-neon-emerald/10 px-2.5 py-1 rounded-full border border-neon-emerald/30 font-semibold flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-neon-emerald animate-ping"></span>
                   Nov 2026 – Present
                 </span>
               </div>
@@ -296,7 +1034,7 @@
               Working directly alongside Founder Rohan Mudugal on core marketplace infrastructure, commercial launch, and revenue engineering.
             </p>
 
-            <ul class="text-xs text-gray-300 space-y-2.5 list-disc list-outside ml-4 leading-relaxed">
+            <ul class="text-xs text-gray-300 space-y-2.5 list-disc list-outside ml-4 leading-relaxed font-sans">
               <li>
                 <strong class="text-white">Commercial Checkout & Payments:</strong> Engineered core commercial checkout infrastructure with Razorpay Standard Web Checkout and backend HMAC-SHA256 cryptographic verification for multi-tier campaign and onboarding payments.
               </li>
@@ -315,36 +1053,31 @@
             </ul>
 
             <!-- Tech Badges -->
-            <div class="flex flex-wrap gap-1.5 mt-5 pt-4 border-t border-dark-border/60">
-              <span class="px-2 py-0.5 rounded bg-dark-700 text-[11px] font-mono text-primary-300 border border-dark-border/60">FastAPI</span>
-              <span class="px-2 py-0.5 rounded bg-dark-700 text-[11px] font-mono text-primary-300 border border-dark-border/60">Python</span>
-              <span class="px-2 py-0.5 rounded bg-dark-700 text-[11px] font-mono text-primary-300 border border-dark-border/60">React</span>
-              <span class="px-2 py-0.5 rounded bg-dark-700 text-[11px] font-mono text-primary-300 border border-dark-border/60">MongoDB Atlas</span>
-              <span class="px-2 py-0.5 rounded bg-dark-700 text-[11px] font-mono text-primary-300 border border-dark-border/60">Razorpay API</span>
-              <span class="px-2 py-0.5 rounded bg-dark-700 text-[11px] font-mono text-primary-300 border border-dark-border/60">HMAC-SHA256</span>
-              <span class="px-2 py-0.5 rounded bg-dark-700 text-[11px] font-mono text-primary-300 border border-dark-border/60">Emergent Cloud</span>
+            <div class="flex flex-wrap gap-1.5 mt-5 pt-4 border-t border-cyber-border">
+              <span class="px-2 py-0.5 rounded bg-cyber-800 text-[11px] font-mono text-neon-cyan border border-cyber-border">FastAPI</span>
+              <span class="px-2 py-0.5 rounded bg-cyber-800 text-[11px] font-mono text-neon-cyan border border-cyber-border">Python</span>
+              <span class="px-2 py-0.5 rounded bg-cyber-800 text-[11px] font-mono text-neon-cyan border border-cyber-border">React</span>
+              <span class="px-2 py-0.5 rounded bg-cyber-800 text-[11px] font-mono text-neon-cyan border border-cyber-border">MongoDB Atlas</span>
+              <span class="px-2 py-0.5 rounded bg-cyber-800 text-[11px] font-mono text-neon-amber border border-neon-amber/30">Razorpay API</span>
+              <span class="px-2 py-0.5 rounded bg-cyber-800 text-[11px] font-mono text-neon-emerald border border-neon-emerald/30">HMAC-SHA256</span>
+              <span class="px-2 py-0.5 rounded bg-cyber-800 text-[11px] font-mono text-neon-purple border border-neon-purple/30">Emergent Cloud</span>
             </div>
           </div>
 
           <!-- Role 2: Softech Infosys -->
-          <div class="glass-card p-6 rounded-2xl relative pl-8 before:absolute before:left-4 before:top-8 before:bottom-0 before:w-0.5 before:bg-primary-500/20 border border-dark-border">
-            <span class="absolute left-2.5 top-7 w-3.5 h-3.5 rounded-full bg-primary-500/50 border-2 border-dark-900"></span>
+          <div class="glass-panel p-6 rounded-2xl relative pl-8 before:absolute before:left-4 before:top-8 before:bottom-0 before:w-0.5 before:bg-cyber-border border border-cyber-border">
+            <span class="absolute left-2.5 top-7 w-3.5 h-3.5 rounded-full bg-cyber-600 border-2 border-cyber-950"></span>
             
             <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
-              <h3 class="font-bold text-base text-white">Software Development Intern</h3>
-              <span class="text-xs font-mono text-gray-400 bg-dark-700 px-2 py-0.5 rounded border border-dark-border/60">Apr 2025 – May 2025</span>
+              <h3 class="font-display font-bold text-base text-white">Software Development Intern</h3>
+              <span class="text-xs font-mono text-gray-400 bg-cyber-850 px-2 py-0.5 rounded border border-cyber-border">Apr 2025 – May 2025</span>
             </div>
-            <p class="text-xs font-medium text-gray-400 mb-3">Softech Infosys Pvt. Ltd. · Kathmandu, Nepal</p>
-            <ul class="text-xs text-gray-300 space-y-2 list-disc list-outside ml-4 leading-relaxed">
+            <p class="text-xs font-medium text-gray-400 mb-3 font-mono">Softech Infosys Pvt. Ltd. · Kathmandu, Nepal</p>
+            <ul class="text-xs text-gray-300 space-y-2 list-disc list-outside ml-4 leading-relaxed font-sans">
               <li>Assisted senior engineering team with application feature development and unit testing activities.</li>
               <li>Collaborated in agile sprint cycles to debug edge cases and resolve application issues before release.</li>
               <li>Conducted functional testing across software modules to ensure compliance with client specifications.</li>
             </ul>
-            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-dark-border/60">
-              <span class="px-2 py-0.5 rounded bg-dark-700 text-[11px] font-mono text-gray-300 border border-dark-border/60">Python</span>
-              <span class="px-2 py-0.5 rounded bg-dark-700 text-[11px] font-mono text-gray-300 border border-dark-border/60">Unit Testing</span>
-              <span class="px-2 py-0.5 rounded bg-dark-700 text-[11px] font-mono text-gray-300 border border-dark-border/60">Agile Workflow</span>
-            </div>
           </div>
         </div>
       </div>
@@ -352,67 +1085,67 @@
       <!-- Education & Credentials Column -->
       <div class="lg:col-span-5">
         <div class="mb-8">
-          <span class="text-accent-cyan font-mono text-xs tracking-wider uppercase font-semibold">Academic Foundation</span>
-          <h2 class="text-3xl font-bold tracking-tight text-white mt-1">Education & Certifications</h2>
+          <span class="text-neon-purple font-mono text-xs tracking-wider uppercase font-semibold">Academic Foundation</span>
+          <h2 class="font-display text-3xl font-extrabold tracking-tight text-white mt-1">Education & Certifications</h2>
         </div>
 
         <div class="space-y-6">
           <!-- Degree Card -->
-          <div class="glass-card p-6 rounded-2xl border border-dark-border">
+          <div class="glass-panel p-6 rounded-2xl border border-cyber-border">
             <div class="flex items-center justify-between gap-2 mb-1.5">
-              <h3 class="font-bold text-base text-white">Bachelor of Computer Applications (BCA)</h3>
-              <span class="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-0.5 rounded border border-accent-cyan/20">2024 – 2028</span>
+              <h3 class="font-display font-bold text-base text-white">Bachelor of Computer Applications (BCA)</h3>
+              <span class="text-xs font-mono text-neon-cyan bg-neon-cyan/10 px-2 py-0.5 rounded border border-neon-cyan/20">2024 – 2028</span>
             </div>
-            <p class="text-xs font-medium text-gray-300 mb-2">CHRIST (Deemed to be University) · Bengaluru, India</p>
-            <p class="text-xs text-gray-400 leading-relaxed">
+            <p class="text-xs font-medium text-gray-300 mb-2 font-mono">CHRIST (Deemed to be University) · Bengaluru, India</p>
+            <p class="text-xs text-gray-400 leading-relaxed font-sans">
               Rigorous foundational coursework in Data Structures & Algorithms, Database Management Systems (DBMS), Relational Schema Design, Object-Oriented Architecture, Operating Systems, and Modern Web Systems.
             </p>
           </div>
 
           <!-- Verified Certifications Card -->
-          <div class="glass-card p-6 rounded-2xl border border-dark-border">
-            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3 flex items-center gap-2">
-              <i data-lucide="award" class="w-4 h-4 text-primary-400"></i>
+          <div class="glass-panel p-6 rounded-2xl border border-cyber-border">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3 flex items-center gap-2 font-mono">
+              <i data-lucide="award" class="w-4 h-4 text-neon-cyan"></i>
               <span>Verified Industry Certifications</span>
             </h4>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-              <div class="flex items-center gap-2.5 p-2.5 rounded-lg bg-dark-800 border border-dark-border/60">
-                <i data-lucide="cloud" class="w-4 h-4 text-primary-400 shrink-0"></i>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs font-mono">
+              <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-cyber-950 border border-cyber-border">
+                <i data-lucide="cloud" class="w-4 h-4 text-neon-cyan shrink-0"></i>
                 <div>
                   <span class="text-gray-200 font-medium block">AWS Cloud Foundation</span>
-                  <span class="text-[10px] text-gray-400">Cloud Architecture & EC2</span>
+                  <span class="text-[10px] text-gray-500">EC2 & Architecture</span>
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 p-2.5 rounded-lg bg-dark-800 border border-dark-border/60">
-                <i data-lucide="layers" class="w-4 h-4 text-accent-cyan shrink-0"></i>
+              <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-cyber-950 border border-cyber-border">
+                <i data-lucide="layers" class="w-4 h-4 text-neon-purple shrink-0"></i>
                 <div>
                   <span class="text-gray-200 font-medium block">Infosys Full Stack Dev</span>
-                  <span class="text-[10px] text-gray-400">Full-Stack Architecture</span>
+                  <span class="text-[10px] text-gray-500">Full Stack Eng</span>
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 p-2.5 rounded-lg bg-dark-800 border border-dark-border/60">
-                <i data-lucide="database" class="w-4 h-4 text-accent-emerald shrink-0"></i>
+              <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-cyber-950 border border-cyber-border">
+                <i data-lucide="database" class="w-4 h-4 text-neon-emerald shrink-0"></i>
                 <div>
                   <span class="text-gray-200 font-medium block">PL/SQL 101 Database</span>
-                  <span class="text-[10px] text-gray-400">Relational & Stored Procs</span>
+                  <span class="text-[10px] text-gray-500">Relational & Stored Procs</span>
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 p-2.5 rounded-lg bg-dark-800 border border-dark-border/60">
-                <i data-lucide="cpu" class="w-4 h-4 text-purple-400 shrink-0"></i>
+              <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-cyber-950 border border-cyber-border">
+                <i data-lucide="cpu" class="w-4 h-4 text-neon-pink shrink-0"></i>
                 <div>
                   <span class="text-gray-200 font-medium block">UiPath Automation</span>
-                  <span class="text-[10px] text-gray-400">Process Automation</span>
+                  <span class="text-[10px] text-gray-500">RPA Systems</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Startup Engineering Note -->
-          <div class="p-4 rounded-xl bg-primary-600/10 border border-primary-500/20 text-xs text-primary-200 leading-relaxed flex items-start gap-3">
-            <i data-lucide="sparkles" class="w-4 h-4 text-primary-400 shrink-0 mt-0.5"></i>
+          <!-- Founder's Office Advantage Callout -->
+          <div class="p-5 rounded-2xl bg-gradient-to-r from-neon-indigo/15 via-neon-cyan/15 to-neon-purple/15 border border-neon-cyan/30 text-xs text-gray-300 leading-relaxed flex items-start gap-3">
+            <i data-lucide="sparkles" class="w-5 h-5 text-neon-cyan shrink-0 mt-0.5"></i>
             <div>
-              <span class="font-bold text-white block mb-0.5">Founder's Office Perspective</span>
-              Bridging high-level product strategy and low-level backend implementation to ship revenue-generating systems at startup velocity.
+              <span class="font-display font-bold text-white block text-sm mb-0.5">Founder's Office Mindset</span>
+              Bridging high-level product strategy, merchant pricing economics, and low-level backend engineering to ship revenue-generating systems at startup speed.
             </div>
           </div>
         </div>
@@ -420,618 +1153,637 @@
     </div>
   </section>
 
-  <!-- Featured Production Systems Section -->
-  <section id="projects" class="py-16 px-6 max-w-6xl mx-auto border-t border-dark-border/40">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+  <!-- INTERACTIVE TECHNICAL SKILLS MATRIX SECTION -->
+  <section id="skills" class="py-16 px-6 max-w-6xl mx-auto relative z-10 border-t border-cyber-border">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
       <div>
-        <span class="text-primary-400 font-mono text-xs tracking-wider uppercase font-semibold">Engineering Portfolio</span>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-1">Featured Production Systems</h2>
-      </div>
-      <p class="text-sm text-gray-400 mt-2 md:mt-0 max-w-md">
-        Commercial marketplace backends, cryptographic payment pipelines, dynamic capacity algorithms, and full-stack software.
-      </p>
-    </div>
-
-    <div class="space-y-8">
-      <!-- FLAGSHIP PROJECT 1: SCREAM IT -->
-      <div class="glass-card-featured rounded-2xl p-6 sm:p-8 border border-primary-500/40 relative overflow-hidden">
-        <!-- Accent Glow Pill -->
-        <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-amber-500/20 to-primary-600/30 border border-amber-500/40 flex items-center justify-center text-amber-400">
-              <i data-lucide="zap" class="w-6 h-6"></i>
-            </div>
-            <div>
-              <div class="flex items-center gap-2">
-                <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Scream It</h3>
-                <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 font-semibold">Flagship Commercial System</span>
-              </div>
-              <span class="text-xs font-mono text-gray-400">The Offline Campaign Marketplace — Coffee-sleeve advertising network in Bengaluru</span>
-            </div>
-          </div>
-
-          <!-- Status badges -->
-          <div class="flex items-center gap-2">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-emerald/10 border border-accent-emerald/30 text-accent-emerald text-xs font-mono font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent-emerald animate-ping"></span>
-              Live Commercial Infrastructure
-            </span>
-          </div>
-        </div>
-
-        <p class="text-gray-300 text-sm leading-relaxed mb-6">
-          Architected and engineered the core full-stack platform powering Bengaluru's hyper-local offline media marketplace. Developed the complete commercial checkout pipeline with Razorpay and cryptographic verification, complex dynamic calendar capacity engines, and geospatial café discovery working directly alongside Founder Rohan Mudugal.
-        </p>
-
-        <!-- Deep Architecture Highlights Grid (3 Columns) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <!-- Card 1: Payments & Cryptography -->
-          <div class="bg-dark-800/90 p-5 rounded-xl border border-dark-border/80">
-            <div class="flex items-center gap-2 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-2">
-              <i data-lucide="shield-check" class="w-4 h-4"></i>
-              <span>Commercial Payments & HMAC</span>
-            </div>
-            <p class="text-xs text-gray-400 leading-relaxed mb-3">
-              Engineered Razorpay Standard Web Checkout across 3 flows: advertiser campaign bookings, café onboarding fees (with coupon engines e.g. <code class="text-amber-300">EARLYBIRD</code>), and flat ₹4,999 Design Studio checkouts.
-            </p>
-            <div class="text-[11px] font-mono text-gray-300 bg-dark-900/80 p-2 rounded border border-dark-border/60">
-              <span class="text-accent-emerald">✓</span> Server HMAC-SHA256 verification (<code class="text-amber-300">order_id|payment_id</code>) & automated 18% GST separation.
-            </div>
-          </div>
-
-          <!-- Card 2: Scheduling & Capacity Engine -->
-          <div class="bg-dark-800/90 p-5 rounded-xl border border-dark-border/80">
-            <div class="flex items-center gap-2 text-primary-400 text-xs font-semibold uppercase tracking-wider mb-2">
-              <i data-lucide="calendar" class="w-4 h-4"></i>
-              <span>Capacity & Lead Time Engine</span>
-            </div>
-            <p class="text-xs text-gray-400 leading-relaxed mb-3">
-              Built dynamic calendar scheduling enforcing strict 14-day print lead times (waived only when pre-printed sleeve stock covers order), café daily cup limits, and multi-date sleeve distributions.
-            </p>
-            <div class="text-[11px] font-mono text-gray-300 bg-dark-900/80 p-2 rounded border border-dark-border/60">
-              <span class="text-accent-cyan">✓</span> Real-time concurrency date hold & auto-release locks preventing double-booking café slots.
-            </div>
-          </div>
-
-          <!-- Card 3: Geospatial & Cart Sync -->
-          <div class="bg-dark-800/90 p-5 rounded-xl border border-dark-border/80">
-            <div class="flex items-center gap-2 text-accent-cyan text-xs font-semibold uppercase tracking-wider mb-2">
-              <i data-lucide="map-pin" class="w-4 h-4"></i>
-              <span>Geo Mapping & Guest State Sync</span>
-            </div>
-            <p class="text-xs text-gray-400 leading-relaxed mb-3">
-              Implemented interactive Bengaluru café mapping using Pigeon Maps (~14KB bundle footprint, zero Google API cost) paired with a 5-photo responsive zero-layout-shift showcase gallery.
-            </p>
-            <div class="text-[11px] font-mono text-gray-300 bg-dark-900/80 p-2 rounded border border-dark-border/60">
-              <span class="text-primary-300">✓</span> Seamless guest-to-authenticated cart state migration across sign-up/login flows.
-            </div>
-          </div>
-        </div>
-
-        <!-- Tech Stack Tags -->
-        <div class="flex flex-wrap gap-2 mb-6">
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-200 border border-dark-border/80">Python 3.11</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-200 border border-dark-border/80">FastAPI</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-200 border border-dark-border/80">React 18</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-200 border border-dark-border/80">MongoDB Atlas</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-200 border border-dark-border/80">Razorpay API</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-200 border border-dark-border/80">HMAC-SHA256</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-200 border border-dark-border/80">Tailwind CSS</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-200 border border-dark-border/80">Pigeon Maps</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-200 border border-dark-border/80">Emergent Cloud Platform</span>
-        </div>
-
-        <!-- Key Engineering Stats Bar -->
-        <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-dark-border/60 text-xs text-gray-300 font-mono">
-          <div class="flex flex-wrap items-center gap-4">
-            <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-accent-emerald"></i> 3 Commercial Checkout Pipelines</span>
-            <span class="flex items-center gap-1.5"><i data-lucide="lock" class="w-3.5 h-3.5 text-amber-400"></i> Zero-Fraud Signature Verification</span>
-            <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-accent-cyan"></i> 14-Day Production Lead Logic</span>
-          </div>
-          <span class="text-gray-400 text-[11px]">Production Deployment · Bengaluru</span>
-        </div>
+        <span class="text-neon-cyan font-mono text-xs tracking-wider uppercase font-semibold">Competencies</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-1">
+          Technical Skills &amp; Systems Matrix
+        </h2>
       </div>
 
-      <!-- PROJECT 2: HEALTHAI -->
-      <div class="glass-card rounded-2xl p-6 sm:p-8 border border-dark-border hover:border-primary-500/40 transition-all">
-        <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-primary-600/20 border border-primary-500/30 flex items-center justify-center text-primary-400">
-              <i data-lucide="activity" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h3 class="text-2xl font-bold text-white tracking-tight">HealthAI — Clinical Risk Assessment & Triage System</h3>
-              <span class="text-xs font-mono text-gray-400">Full-Stack Backend & ML · Python, Flask, SQLAlchemy, Docker</span>
-            </div>
-          </div>
-          <!-- Live Badges -->
-          <div class="flex items-center gap-2">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-emerald/10 border border-accent-emerald/30 text-accent-emerald text-xs font-mono font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent-emerald animate-ping"></span>
-              24/7 Cloud Deployed
-            </span>
-          </div>
-        </div>
-
-        <p class="text-gray-300 text-sm leading-relaxed mb-6">
-          A production-oriented clinical screening and patient-doctor triage platform. Ingests patient symptoms and vitals, computes multi-class risk assessments via a Scikit-Learn machine learning pipeline, and routes reports into a clinician verification queue with automated PDF clinical report generation.
-        </p>
-
-        <!-- Technical Achievements Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div class="bg-dark-800/80 p-4 rounded-xl border border-dark-border/60">
-            <div class="flex items-center gap-2 text-primary-400 text-xs font-semibold uppercase tracking-wider mb-1">
-              <i data-lucide="shield-check" class="w-4 h-4"></i>
-              <span>Enterprise Auth & RBAC</span>
-            </div>
-            <p class="text-xs text-gray-400">
-              Strict multi-role authorization (Patient, Doctor, Admin) utilizing JWT cookies/headers, bcrypt password hashing, and CSRF protection.
-            </p>
-          </div>
-
-          <div class="bg-dark-800/80 p-4 rounded-xl border border-dark-border/60">
-            <div class="flex items-center gap-2 text-accent-cyan text-xs font-semibold uppercase tracking-wider mb-1">
-              <i data-lucide="database" class="w-4 h-4"></i>
-              <span>Resilient Data Layer</span>
-            </div>
-            <p class="text-xs text-gray-400">
-              SQLAlchemy 2.0 ORM with relational schema (Appointments, Doctors, Vitals, Audit Logs). Built-in automated fallback to SQLite if remote PostgreSQL is unreachable.
-            </p>
-          </div>
-
-          <div class="bg-dark-800/80 p-4 rounded-xl border border-dark-border/60">
-            <div class="flex items-center gap-2 text-accent-emerald text-xs font-semibold uppercase tracking-wider mb-1">
-              <i data-lucide="cpu" class="w-4 h-4"></i>
-              <span>ML & Report Engine</span>
-            </div>
-            <p class="text-xs text-gray-400">
-              Automated feature encoding and inference using joblib models, combined with dynamic PDF clinical report synthesis via ReportLab.
-            </p>
-          </div>
-        </div>
-
-        <!-- Tech Stack Tags -->
-        <div class="flex flex-wrap gap-2 mb-6">
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">Python 3.11</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">Flask 3.0</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">SQLAlchemy 2.0</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">PostgreSQL</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">Docker</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">Gunicorn</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">Scikit-Learn</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">JWT Auth</span>
-        </div>
-
-        <!-- Project Links -->
-        <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-dark-border/60">
-          <div class="flex items-center gap-3">
-            <a href="https://healthai-deploy.onrender.com" target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-600 hover:bg-primary-500 text-white font-medium text-xs shadow-md transition-all">
-              <i data-lucide="globe" class="w-3.5 h-3.5"></i>
-              <span>Open Live Demo</span>
-            </a>
-            <a href="https://github.com/srijann07/healthai-deploy" target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-dark-700 hover:bg-dark-600 text-gray-200 font-medium text-xs border border-dark-border transition-all">
-              <i data-lucide="github" class="w-3.5 h-3.5"></i>
-              <span>GitHub Repo</span>
-            </a>
-          </div>
-
-          <!-- Quick Test Credentials -->
-          <div class="text-xs text-gray-400 font-mono">
-            <span>Demo Doctor: </span>
-            <code class="text-primary-300">dr.sharma@healthai.local</code> / <code class="text-primary-300">Doctor@12345</code>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 3: MICROMOUSE MAZE SIMULATOR -->
-      <div class="glass-card rounded-2xl p-6 sm:p-8 border border-dark-border hover:border-primary-500/40 transition-all">
-        <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-accent-cyan/20 border border-accent-cyan/30 flex items-center justify-center text-accent-cyan">
-              <i data-lucide="compass" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h3 class="text-2xl font-bold text-white tracking-tight">Micromouse Maze Simulator — Autonomous Pathfinding Engine</h3>
-              <span class="text-xs font-mono text-gray-400">Algorithmic Engineering & Graph Theory · Python, Flood Fill, BFS/DFS</span>
-            </div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-cyan/10 border border-accent-cyan/30 text-accent-cyan text-xs font-mono font-medium">
-              Algorithms & Robotics
-            </span>
-          </div>
-        </div>
-
-        <p class="text-gray-300 text-sm leading-relaxed mb-6">
-          An algorithmic simulation engine modeling autonomous robotic navigation inside standard 16x16 competitive IEEE Micromouse mazes. Implemented classic robotic sensory mapping, wall detection logic, dynamic distance updating, and shortest-path optimization.
-        </p>
-
-        <!-- Technical Highlights -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div class="bg-dark-800/80 p-4 rounded-xl border border-dark-border/60">
-            <div class="flex items-center gap-2 text-accent-cyan text-xs font-semibold uppercase tracking-wider mb-1">
-              <i data-lucide="cpu" class="w-4 h-4"></i>
-              <span>Flood Fill Algorithm</span>
-            </div>
-            <p class="text-xs text-gray-400">
-              Engineered dynamic Manhattan-distance matrix calculations that recalculate optimal routes in real-time as unknown wall obstacles are detected.
-            </p>
-          </div>
-
-          <div class="bg-dark-800/80 p-4 rounded-xl border border-dark-border/60">
-            <div class="flex items-center gap-2 text-primary-400 text-xs font-semibold uppercase tracking-wider mb-1">
-              <i data-lucide="git-branch" class="w-4 h-4"></i>
-              <span>Graph Traversal & Pruning</span>
-            </div>
-            <p class="text-xs text-gray-400">
-              Implemented Breadth-First Search (BFS) and Depth-First Search (DFS) routines with dead-end detection and return-to-origin exploration passes.
-            </p>
-          </div>
-
-          <div class="bg-dark-800/80 p-4 rounded-xl border border-dark-border/60">
-            <div class="flex items-center gap-2 text-accent-emerald text-xs font-semibold uppercase tracking-wider mb-1">
-              <i data-lucide="eye" class="w-4 h-4"></i>
-              <span>Simulation Visualizer</span>
-            </div>
-            <p class="text-xs text-gray-400">
-              Built interactive step-by-step maze solving visualization rendering cell states, robot orientation, and cumulative traversal metrics.
-            </p>
-          </div>
-        </div>
-
-        <!-- Tech Stack Tags -->
-        <div class="flex flex-wrap gap-2 mb-6">
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">Python</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">Flood Fill Algorithm</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">Graph Theory</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">BFS / DFS</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">Autonomous Navigation</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">Algorithm Optimization</span>
-        </div>
-
-        <!-- Project Links -->
-        <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-dark-border/60">
-          <a href="https://github.com/srijann07/micromouse-maze-simulator" target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-dark-700 hover:bg-dark-600 text-gray-200 font-medium text-xs border border-dark-border transition-all">
-            <i data-lucide="github" class="w-3.5 h-3.5"></i>
-            <span>GitHub Repository</span>
-          </a>
-          <span class="text-xs font-mono text-gray-400">Robotics & Algorithmic Problem Solving</span>
-        </div>
-      </div>
-
-      <!-- PROJECT 4: STUDENT DASHBOARD -->
-      <div class="glass-card rounded-2xl p-6 sm:p-8 border border-dark-border hover:border-primary-500/40 transition-all">
-        <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400">
-              <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h3 class="text-2xl font-bold text-white tracking-tight">Student Analytics & Performance Intelligence Dashboard</h3>
-              <span class="text-xs font-mono text-gray-400">Data Engineering & Interactive Analytics · Python, Streamlit, Pandas, Plotly</span>
-            </div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono font-medium">
-              Data Intelligence
-            </span>
-          </div>
-        </div>
-
-        <p class="text-gray-300 text-sm leading-relaxed mb-6">
-          Architected an interactive statistical data dashboard tracking academic grade distributions, attendance-to-performance correlations, and cohort trends. Provides educators with automated at-risk student indicators, percentile rankings, and dynamic data filtering.
-        </p>
-
-        <!-- Technical Highlights -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div class="bg-dark-800/80 p-4 rounded-xl border border-dark-border/60">
-            <div class="flex items-center gap-2 text-purple-400 text-xs font-semibold uppercase tracking-wider mb-1">
-              <i data-lucide="pie-chart" class="w-4 h-4"></i>
-              <span>Statistical Slicing</span>
-            </div>
-            <p class="text-xs text-gray-400">
-              Engineered Pandas pipelines to aggregate cohort percentiles, standard deviation metrics, and GPA trends across custom academic terms.
-            </p>
-          </div>
-
-          <div class="bg-dark-800/80 p-4 rounded-xl border border-dark-border/60">
-            <div class="flex items-center gap-2 text-accent-cyan text-xs font-semibold uppercase tracking-wider mb-1">
-              <i data-lucide="sliders" class="w-4 h-4"></i>
-              <span>Interactive Plotly Visuals</span>
-            </div>
-            <p class="text-xs text-gray-400">
-              Built dynamic multi-dimensional charts (scatter correlations, box plots, heatmaps) with reactive slider controls and instant CSV uploads.
-            </p>
-          </div>
-
-          <div class="bg-dark-800/80 p-4 rounded-xl border border-dark-border/60">
-            <div class="flex items-center gap-2 text-accent-emerald text-xs font-semibold uppercase tracking-wider mb-1">
-              <i data-lucide="alert-triangle" class="w-4 h-4"></i>
-              <span>Early Intervention Models</span>
-            </div>
-            <p class="text-xs text-gray-400">
-              Designed threshold rules flagging attendance drops below 75% and score dips before final grading periods.
-            </p>
-          </div>
-        </div>
-
-        <!-- Tech Stack Tags -->
-        <div class="flex flex-wrap gap-2 mb-6">
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">Python</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">Streamlit</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">Pandas</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">Plotly</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">Data Visualization</span>
-          <span class="px-2.5 py-1 rounded-md bg-dark-700 text-xs font-mono text-gray-300 border border-dark-border/60">Statistical Analysis</span>
-        </div>
-
-        <!-- Project Links -->
-        <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-dark-border/60">
-          <a href="https://github.com/srijann07/student-dashboard" target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-dark-700 hover:bg-dark-600 text-gray-200 font-medium text-xs border border-dark-border transition-all">
-            <i data-lucide="github" class="w-3.5 h-3.5"></i>
-            <span>GitHub Repository</span>
-          </a>
-          <span class="text-xs font-mono text-gray-400">Data Engineering & Statistical Analytics</span>
-        </div>
+      <!-- Category Filter Pills -->
+      <div class="flex flex-wrap gap-2 mt-4 md:mt-0 font-mono text-xs">
+        <button onclick="filterSkills('all')" id="filterBtn-all" 
+                class="px-3 py-1 rounded-lg bg-neon-cyan text-black font-semibold transition-all cursor-pointer">
+          ALL (18)
+        </button>
+        <button onclick="filterSkills('backend')" id="filterBtn-backend" 
+                class="px-3 py-1 rounded-lg bg-cyber-850 hover:bg-cyber-700 text-gray-300 transition-all cursor-pointer">
+          BACKEND &amp; APIS
+        </button>
+        <button onclick="filterSkills('payments')" id="filterBtn-payments" 
+                class="px-3 py-1 rounded-lg bg-cyber-850 hover:bg-cyber-700 text-gray-300 transition-all cursor-pointer">
+          PAYMENTS &amp; SECURITY
+        </button>
+        <button onclick="filterSkills('frontend')" id="filterBtn-frontend" 
+                class="px-3 py-1 rounded-lg bg-cyber-850 hover:bg-cyber-700 text-gray-300 transition-all cursor-pointer">
+          FRONTEND &amp; UI
+        </button>
+        <button onclick="filterSkills('devops')" id="filterBtn-devops" 
+                class="px-3 py-1 rounded-lg bg-cyber-850 hover:bg-cyber-700 text-gray-300 transition-all cursor-pointer">
+          CLOUD &amp; DEVOPS
+        </button>
       </div>
     </div>
-  </section>
 
-  <!-- Technical Skills Matrix Section -->
-  <section id="skills" class="py-16 px-6 max-w-6xl mx-auto border-t border-dark-border/40">
-    <div class="mb-12">
-      <span class="text-primary-400 font-mono text-xs tracking-wider uppercase font-semibold">Competencies</span>
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-1">Technical Skills & Systems Matrix</h2>
-      <p class="text-sm text-gray-400 mt-2 max-w-xl">
-        Production-tested tools, frameworks, and architecture patterns utilized in startup and enterprise environments.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Skills Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="skillsContainer">
       <!-- 1. Languages -->
-      <div class="glass-card p-6 rounded-2xl border border-dark-border">
-        <div class="w-9 h-9 rounded-lg bg-primary-600/20 text-primary-400 flex items-center justify-center mb-4">
-          <i data-lucide="code" class="w-4 h-4"></i>
+      <div class="skill-card glass-panel p-6 rounded-2xl border border-cyber-border" data-category="backend frontend">
+        <div class="w-10 h-10 rounded-xl bg-neon-cyan/15 text-neon-cyan flex items-center justify-center mb-4">
+          <i data-lucide="code" class="w-5 h-5"></i>
         </div>
-        <h3 class="text-base font-bold text-white mb-2">Languages</h3>
-        <p class="text-xs text-gray-400 mb-4">Core languages used for systems, scripting, and interfaces.</p>
-        <ul class="space-y-2 text-xs font-mono text-gray-300">
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary-400"></span>Python 3.11+</span>
-            <span class="text-[10px] text-gray-500 font-sans">Primary / Backend</span>
+        <h3 class="font-display text-base font-bold text-white mb-1">Languages</h3>
+        <p class="text-xs text-gray-400 mb-4 font-mono">Systems, scripting, and client interfaces.</p>
+        <ul class="space-y-2.5 text-xs font-mono text-gray-300">
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-cyan"></span>Python 3.11+</span>
+            <span class="text-[10px] text-neon-cyan">PRIMARY</span>
           </li>
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary-400"></span>JavaScript (ES6+)</span>
-            <span class="text-[10px] text-gray-500 font-sans">Frontend & DOM</span>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-cyan"></span>JavaScript (ES6+)</span>
+            <span class="text-[10px] text-gray-400">REACT / DOM</span>
           </li>
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary-400"></span>SQL</span>
-            <span class="text-[10px] text-gray-500 font-sans">Queries & Schemas</span>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-cyan"></span>SQL</span>
+            <span class="text-[10px] text-gray-400">POSTGRES / MYSQL</span>
           </li>
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary-400"></span>HTML5 & CSS3</span>
-            <span class="text-[10px] text-gray-500 font-sans">Modern Standards</span>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-cyan"></span>HTML5 &amp; CSS3</span>
+            <span class="text-[10px] text-gray-400">MODERN WEB</span>
           </li>
         </ul>
       </div>
 
-      <!-- 2. Frameworks & Frontend -->
-      <div class="glass-card p-6 rounded-2xl border border-dark-border">
-        <div class="w-9 h-9 rounded-lg bg-accent-cyan/20 text-accent-cyan flex items-center justify-center mb-4">
-          <i data-lucide="layout" class="w-4 h-4"></i>
+      <!-- 2. Frameworks & Backend -->
+      <div class="skill-card glass-panel p-6 rounded-2xl border border-cyber-border" data-category="backend">
+        <div class="w-10 h-10 rounded-xl bg-neon-purple/15 text-neon-purple flex items-center justify-center mb-4">
+          <i data-lucide="server" class="w-5 h-5"></i>
         </div>
-        <h3 class="text-base font-bold text-white mb-2">Frameworks & Frontend</h3>
-        <p class="text-xs text-gray-400 mb-4">Modern backend microservices and responsive web UI.</p>
-        <ul class="space-y-2 text-xs font-mono text-gray-300">
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span>React 18</span>
-            <span class="text-[10px] text-gray-500 font-sans">Components & Hooks</span>
+        <h3 class="font-display text-base font-bold text-white mb-1">Backend &amp; Microservices</h3>
+        <p class="text-xs text-gray-400 mb-4 font-mono">Async API design and WSGI/ASGI gateways.</p>
+        <ul class="space-y-2.5 text-xs font-mono text-gray-300">
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-purple"></span>FastAPI</span>
+            <span class="text-[10px] text-neon-purple">ASYNC / PYDANTIC</span>
           </li>
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span>FastAPI</span>
-            <span class="text-[10px] text-gray-500 font-sans">Async APIs & Pydantic</span>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-purple"></span>Flask 3.0</span>
+            <span class="text-[10px] text-gray-400">BLUEPRINTS / WSGI</span>
           </li>
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span>Flask 3.0</span>
-            <span class="text-[10px] text-gray-500 font-sans">Blueprints & WSGI</span>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-purple"></span>RESTful API Design</span>
+            <span class="text-[10px] text-gray-400">CLEAN SPECS</span>
           </li>
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span>Tailwind CSS</span>
-            <span class="text-[10px] text-gray-500 font-sans">Utility-First UI</span>
-          </li>
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span>Streamlit</span>
-            <span class="text-[10px] text-gray-500 font-sans">Rapid Dashboards</span>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-purple"></span>Gunicorn / Uvicorn</span>
+            <span class="text-[10px] text-gray-400">PROD SERVERS</span>
           </li>
         </ul>
       </div>
 
-      <!-- 3. Databases & ORM -->
-      <div class="glass-card p-6 rounded-2xl border border-dark-border">
-        <div class="w-9 h-9 rounded-lg bg-accent-emerald/20 text-accent-emerald flex items-center justify-center mb-4">
-          <i data-lucide="database" class="w-4 h-4"></i>
+      <!-- 3. Payments & Security -->
+      <div class="skill-card glass-panel p-6 rounded-2xl border border-cyber-border" data-category="payments">
+        <div class="w-10 h-10 rounded-xl bg-neon-amber/15 text-neon-amber flex items-center justify-center mb-4">
+          <i data-lucide="shield-check" class="w-5 h-5"></i>
         </div>
-        <h3 class="text-base font-bold text-white mb-2">Databases & ORM</h3>
-        <p class="text-xs text-gray-400 mb-4">Relational modeling, document stores, and indexing.</p>
-        <ul class="space-y-2 text-xs font-mono text-gray-300">
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-emerald"></span>MongoDB Atlas</span>
-            <span class="text-[10px] text-gray-500 font-sans">NoSQL & Document</span>
+        <h3 class="font-display text-base font-bold text-white mb-1">Payments &amp; Security</h3>
+        <p class="text-xs text-gray-400 mb-4 font-mono">Commercial checkout &amp; zero-trust verification.</p>
+        <ul class="space-y-2.5 text-xs font-mono text-gray-300">
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-amber"></span>Razorpay Web Checkout</span>
+            <span class="text-[10px] text-neon-amber">3 FLOWS</span>
           </li>
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-emerald"></span>PostgreSQL</span>
-            <span class="text-[10px] text-gray-500 font-sans">ACID & Constraints</span>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-amber"></span>HMAC-SHA256 Signatures</span>
+            <span class="text-[10px] text-neon-emerald">ANTI-FRAUD</span>
           </li>
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-emerald"></span>SQLite</span>
-            <span class="text-[10px] text-gray-500 font-sans">Local & Fallbacks</span>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-amber"></span>JWT &amp; RBAC Auth</span>
+            <span class="text-[10px] text-gray-400">MULTI-ROLE</span>
           </li>
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent-emerald"></span>SQLAlchemy 2.0</span>
-            <span class="text-[10px] text-gray-500 font-sans">Declarative ORM</span>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-amber"></span>18% GST &amp; Pricing Engines</span>
+            <span class="text-[10px] text-gray-400">AUTOMATED</span>
           </li>
         </ul>
       </div>
 
-      <!-- 4. Payments & Security -->
-      <div class="glass-card p-6 rounded-2xl border border-dark-border">
-        <div class="w-9 h-9 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center mb-4">
-          <i data-lucide="shield-check" class="w-4 h-4"></i>
+      <!-- 4. Databases & Storage -->
+      <div class="skill-card glass-panel p-6 rounded-2xl border border-cyber-border" data-category="backend">
+        <div class="w-10 h-10 rounded-xl bg-neon-emerald/15 text-neon-emerald flex items-center justify-center mb-4">
+          <i data-lucide="database" class="w-5 h-5"></i>
         </div>
-        <h3 class="text-base font-bold text-white mb-2">Payments & Security</h3>
-        <p class="text-xs text-gray-400 mb-4">Commercial transaction integrity and zero-trust verification.</p>
-        <ul class="space-y-2 text-xs font-mono text-gray-300">
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Razorpay Web Checkout</span>
-            <span class="text-[10px] text-gray-500 font-sans">3 Live Flows</span>
+        <h3 class="font-display text-base font-bold text-white mb-1">Databases &amp; ORM</h3>
+        <p class="text-xs text-gray-400 mb-4 font-mono">Document stores and relational modeling.</p>
+        <ul class="space-y-2.5 text-xs font-mono text-gray-300">
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-emerald"></span>MongoDB Atlas</span>
+            <span class="text-[10px] text-neon-emerald">NOSQL CLUSTERS</span>
           </li>
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>HMAC-SHA256 Signatures</span>
-            <span class="text-[10px] text-gray-500 font-sans">Fraud Prevention</span>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-emerald"></span>PostgreSQL</span>
+            <span class="text-[10px] text-gray-400">ACID RELATIONAL</span>
           </li>
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>JWT & Role-Based RBAC</span>
-            <span class="text-[10px] text-gray-500 font-sans">Multi-Role Auth</span>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-emerald"></span>SQLAlchemy 2.0</span>
+            <span class="text-[10px] text-gray-400">DECLARATIVE ORM</span>
           </li>
-          <li class="flex items-center justify-between">
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>CORS & Security Audits</span>
-            <span class="text-[10px] text-gray-500 font-sans">Zero Leakage</span>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-emerald"></span>SQLite Fallback</span>
+            <span class="text-[10px] text-gray-400">FAILSAFE STORE</span>
           </li>
         </ul>
       </div>
 
-      <!-- 5. DevOps, Cloud & Tools -->
-      <div class="glass-card p-6 rounded-2xl border border-dark-border md:col-span-2 lg:col-span-2">
-        <div class="w-9 h-9 rounded-lg bg-primary-600/20 text-primary-400 flex items-center justify-center mb-4">
-          <i data-lucide="cloud" class="w-4 h-4"></i>
+      <!-- 5. Frontend & UI -->
+      <div class="skill-card glass-panel p-6 rounded-2xl border border-cyber-border" data-category="frontend">
+        <div class="w-10 h-10 rounded-xl bg-neon-blue/15 text-neon-blue flex items-center justify-center mb-4">
+          <i data-lucide="layout" class="w-5 h-5"></i>
         </div>
-        <h3 class="text-base font-bold text-white mb-2">DevOps, Cloud & Infrastructure</h3>
-        <p class="text-xs text-gray-400 mb-4">Continuous delivery, containerization, and production cloud management.</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <ul class="space-y-2 text-xs font-mono text-gray-300">
-            <li class="flex items-center justify-between">
-              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary-400"></span>Emergent Cloud Platform</span>
-              <span class="text-[10px] text-gray-500 font-sans">Production Hosting</span>
-            </li>
-            <li class="flex items-center justify-between">
-              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary-400"></span>Docker & Containers</span>
-              <span class="text-[10px] text-gray-500 font-sans">Containerization</span>
-            </li>
-            <li class="flex items-center justify-between">
-              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary-400"></span>Git & GitHub Actions</span>
-              <span class="text-[10px] text-gray-500 font-sans">CI/CD & Versioning</span>
-            </li>
-          </ul>
-          <ul class="space-y-2 text-xs font-mono text-gray-300">
-            <li class="flex items-center justify-between">
-              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary-400"></span>Render Cloud</span>
-              <span class="text-[10px] text-gray-500 font-sans">WSGI PaaS</span>
-            </li>
-            <li class="flex items-center justify-between">
-              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary-400"></span>Linux CLI / Bash</span>
-              <span class="text-[10px] text-gray-500 font-sans">Shell Scripting</span>
-            </li>
-            <li class="flex items-center justify-between">
-              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary-400"></span>Postman</span>
-              <span class="text-[10px] text-gray-500 font-sans">API Testing & Specs</span>
-            </li>
-          </ul>
+        <h3 class="font-display text-base font-bold text-white mb-1">Frontend &amp; Visualization</h3>
+        <p class="text-xs text-gray-400 mb-4 font-mono">Modern reactive web and lightweight mapping.</p>
+        <ul class="space-y-2.5 text-xs font-mono text-gray-300">
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-blue"></span>React 18</span>
+            <span class="text-[10px] text-neon-blue">COMPONENTS / HOOKS</span>
+          </li>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-blue"></span>Tailwind CSS</span>
+            <span class="text-[10px] text-gray-400">UTILITY UI</span>
+          </li>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-blue"></span>Pigeon Maps</span>
+            <span class="text-[10px] text-gray-400">14KB ZERO-BILLING</span>
+          </li>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-blue"></span>Streamlit &amp; Plotly</span>
+            <span class="text-[10px] text-gray-400">DATA INTERFACES</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 6. DevOps & Cloud -->
+      <div class="skill-card glass-panel p-6 rounded-2xl border border-cyber-border" data-category="devops">
+        <div class="w-10 h-10 rounded-xl bg-neon-pink/15 text-neon-pink flex items-center justify-center mb-4">
+          <i data-lucide="cloud" class="w-5 h-5"></i>
         </div>
+        <h3 class="font-display text-base font-bold text-white mb-1">DevOps, Cloud &amp; Tools</h3>
+        <p class="text-xs text-gray-400 mb-4 font-mono">Continuous delivery and cloud platforms.</p>
+        <ul class="space-y-2.5 text-xs font-mono text-gray-300">
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-pink"></span>Emergent Cloud</span>
+            <span class="text-[10px] text-neon-pink">PROD DEPLOY</span>
+          </li>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-pink"></span>Docker &amp; Containers</span>
+            <span class="text-[10px] text-gray-400">ISOLATION</span>
+          </li>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-pink"></span>Git &amp; GitHub Actions</span>
+            <span class="text-[10px] text-gray-400">CI/CD PIPELINES</span>
+          </li>
+          <li class="flex items-center justify-between p-1.5 rounded-lg bg-cyber-950/60 border border-cyber-border">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-pink"></span>Linux CLI / Bash</span>
+            <span class="text-[10px] text-gray-400">SHELL AUTOMATION</span>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Contact & Connect Section -->
-  <section id="contact" class="py-20 px-6 max-w-4xl mx-auto text-center border-t border-dark-border/40">
-    <div class="glass-card rounded-3xl p-8 sm:p-12 border border-primary-500/30 bg-gradient-to-b from-dark-800 to-dark-900 shadow-2xl relative overflow-hidden">
-      <!-- Glow effect -->
-      <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- CONTACT & COLLABORATION SECTION -->
+  <section id="contact" class="py-20 px-6 max-w-4xl mx-auto text-center relative z-10 border-t border-cyber-border">
+    <div class="glass-featured rounded-3xl p-8 sm:p-14 border border-neon-cyan/40 shadow-2xl relative overflow-hidden">
+      <!-- Ambient Glow Behind -->
+      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-neon-cyan/15 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-primary-600/20 text-primary-400 mb-6">
-        <i data-lucide="mail" class="w-6 h-6"></i>
+      <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-cyber-900 border border-neon-cyan/40 text-neon-cyan mb-6 shadow-lg shadow-neon-cyan/20">
+        <i data-lucide="radio" class="w-7 h-7"></i>
       </div>
       
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+      <span class="text-neon-cyan font-mono text-xs uppercase tracking-widest block mb-2 font-semibold">
+        &gt; ESTABLISH_CONNECTION()
+      </span>
+      <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
         Let's Build Something Exceptional
       </h2>
-      <p class="text-gray-300 text-sm max-w-xl mx-auto mb-8 leading-relaxed">
-        Always open to conversations around software engineering, founder's office work, backend architectures, payment pipelines, and high-impact technical collaboration. Feel free to connect directly!
+      <p class="text-gray-300 text-sm sm:text-base max-w-xl mx-auto mb-9 leading-relaxed font-sans">
+        Always open to conversations around software engineering, founder's office work, backend architectures, payment pipelines, and high-impact technical collaboration. Reach out directly!
       </p>
 
-      <!-- Action Contact Buttons -->
+      <!-- Action Buttons -->
       <div class="flex flex-wrap items-center justify-center gap-4">
         <a href="mailto:srijansangroula2@gmail.com" 
-           class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-600 hover:bg-primary-500 text-white font-semibold text-sm shadow-lg shadow-primary-500/25 transition-all">
+           onclick="playSound('click')"
+           class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-neon-cyan hover:bg-white text-black font-mono font-bold text-xs uppercase tracking-wider shadow-lg shadow-neon-cyan/25 transition-all">
           <i data-lucide="send" class="w-4 h-4"></i>
-          <span>Send an Email</span>
+          <span>Send Transmission</span>
         </a>
 
-        <!-- Copy Email Button -->
+        <!-- Copy Email Button with Audio & Toast Feedback -->
         <button id="copyEmailBtn" onclick="copyEmail()" 
-                class="inline-flex items-center gap-2 px-5 py-3 rounded-xl glass-card text-gray-200 hover:text-white font-semibold text-sm border border-dark-border transition-all">
+                class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl glass-panel text-gray-200 hover:text-neon-cyan font-mono text-xs uppercase tracking-wider border border-cyber-border hover:border-neon-cyan/40 transition-all cursor-pointer">
           <i data-lucide="copy" class="w-4 h-4"></i>
-          <span id="copyBtnText">Copy Email</span>
+          <span id="copyBtnText">Copy Email Address</span>
         </button>
 
         <a href="https://www.linkedin.com/in/srijan-sangroula-398a74333/" target="_blank" rel="noopener noreferrer" 
-           class="inline-flex items-center gap-2 px-5 py-3 rounded-xl glass-card text-gray-200 hover:text-white font-semibold text-sm border border-dark-border transition-all">
-          <i data-lucide="linkedin" class="w-4 h-4 text-blue-400"></i>
+           onclick="playSound('click')"
+           class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl glass-panel text-gray-200 hover:text-neon-blue font-mono text-xs uppercase tracking-wider border border-cyber-border hover:border-neon-blue/40 transition-all">
+          <i data-lucide="linkedin" class="w-4 h-4 text-neon-blue"></i>
           <span>LinkedIn</span>
         </a>
 
         <a href="https://github.com/srijann07" target="_blank" rel="noopener noreferrer" 
-           class="inline-flex items-center gap-2 px-5 py-3 rounded-xl glass-card text-gray-200 hover:text-white font-semibold text-sm border border-dark-border transition-all">
-          <i data-lucide="github" class="w-4 h-4 text-gray-300"></i>
+           onclick="playSound('click')"
+           class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl glass-panel text-gray-200 hover:text-white font-mono text-xs uppercase tracking-wider border border-cyber-border transition-all">
+          <i data-lucide="github" class="w-4 h-4"></i>
           <span>GitHub</span>
         </a>
       </div>
 
-      <!-- Location and Contact Badges -->
-      <div class="mt-8 pt-8 border-t border-dark-border/40 flex flex-wrap items-center justify-center gap-6 text-xs text-gray-400 font-mono">
-        <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-red-400"></i> Bengaluru, Karnataka, India</span>
-        <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-accent-emerald"></i> +91 7892131654</span>
-        <span class="flex items-center gap-1.5"><i data-lucide="mail" class="w-3.5 h-3.5 text-accent-cyan"></i> srijansangroula2@gmail.com</span>
+      <!-- Quick Badges -->
+      <div class="mt-10 pt-8 border-t border-cyber-border/70 flex flex-wrap items-center justify-center gap-6 text-xs text-gray-400 font-mono">
+        <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-neon-cyan"></i> Bengaluru, Karnataka, India</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-neon-emerald"></i> +91 7892131654</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="mail" class="w-3.5 h-3.5 text-neon-purple"></i> srijansangroula2@gmail.com</span>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-8 border-t border-dark-border/60 text-center text-xs text-gray-500 font-mono">
+  <!-- Futuristic Footer -->
+  <footer class="py-8 border-t border-cyber-border relative z-10 text-xs text-gray-500 font-mono">
     <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2">
-        <span class="font-bold text-gray-300">Srijan Sangroula</span>
-        <span>— Full-Stack Developer Intern @ Scream It</span>
+        <span class="font-bold text-gray-300 font-display text-sm">Srijan Sangroula</span>
+        <span>// Full-Stack Developer Intern @ Scream It</span>
       </div>
       <div class="flex items-center gap-4 text-gray-400">
-        <a href="https://github.com/srijann07" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
-        <a href="https://www.linkedin.com/in/srijan-sangroula-398a74333/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">LinkedIn</a>
-        <a href="https://healthai-deploy.onrender.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">HealthAI Live</a>
+        <a href="https://github.com/srijann07" target="_blank" rel="noopener noreferrer" onclick="playSound('click')" class="hover:text-neon-cyan transition-colors">GitHub</a>
+        <a href="https://www.linkedin.com/in/srijan-sangroula-398a74333/" target="_blank" rel="noopener noreferrer" onclick="playSound('click')" class="hover:text-neon-cyan transition-colors">LinkedIn</a>
+        <a href="https://healthai-deploy.onrender.com" target="_blank" rel="noopener noreferrer" onclick="playSound('click')" class="hover:text-neon-cyan transition-colors">HealthAI Live</a>
       </div>
     </div>
   </footer>
 
-  <!-- Script for Icons and Interactions -->
+  <!-- Notification Toast -->
+  <div id="cyberToast" class="fixed bottom-6 right-6 z-50 bg-cyber-900 border border-neon-cyan/50 text-white px-4 py-3 rounded-xl shadow-2xl font-mono text-xs flex items-center gap-2.5 translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+    <i data-lucide="check-circle-2" class="w-4 h-4 text-neon-emerald"></i>
+    <span id="toastMessage">Action completed</span>
+  </div>
+
+  <!-- Interactive Scripts -->
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
 
-    // Copy Email to Clipboard with visual feedback
+    // Mouse Glow Follower
+    const cursorGlow = document.getElementById('cursorGlow');
+    window.addEventListener('mousemove', (e) => {
+      cursorGlow.style.left = e.clientX + 'px';
+      cursorGlow.style.top = e.clientY + 'px';
+    });
+
+    // Web Audio API Synthesizer
+    let audioCtx = null;
+    let sfxEnabled = true;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playSound(type) {
+      if (!sfxEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        if (type === 'click') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(1200, now);
+          osc.frequency.exponentialRampToValueAtTime(700, now + 0.04);
+          gain.gain.setValueAtTime(0.04, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+          osc.start(now);
+          osc.stop(now + 0.04);
+        } else if (type === 'success') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(523.25, now);
+          osc.frequency.setValueAtTime(783.99, now + 0.07);
+          gain.gain.setValueAtTime(0.05, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+          osc.start(now);
+          osc.stop(now + 0.16);
+        } else if (type === 'terminal') {
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(440, now);
+          osc.frequency.linearRampToValueAtTime(880, now + 0.06);
+          gain.gain.setValueAtTime(0.03, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+          osc.start(now);
+          osc.stop(now + 0.06);
+        }
+      } catch (err) {}
+    }
+
+    function toggleSfx() {
+      sfxEnabled = !sfxEnabled;
+      document.getElementById('sfxStatusText').textContent = sfxEnabled ? 'SFX: ON' : 'SFX: OFF';
+      const icon = document.getElementById('sfxIcon');
+      if (sfxEnabled) {
+        icon.setAttribute('data-lucide', 'volume-2');
+        playSound('click');
+        showToast('Audio Synthesizer Enabled');
+      } else {
+        icon.setAttribute('data-lucide', 'volume-x');
+        showToast('Audio Synthesizer Muted');
+      }
+      lucide.createIcons();
+    }
+
+    // Toast Notification System
+    function showToast(msg) {
+      const toast = document.getElementById('cyberToast');
+      const toastMsg = document.getElementById('toastMessage');
+      toastMsg.innerText = msg;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 2600);
+    }
+
+    // Copy Email to Clipboard
     function copyEmail() {
       const email = "srijansangroula2@gmail.com";
+      playSound('success');
       navigator.clipboard.writeText(email).then(() => {
         const btnText = document.getElementById("copyBtnText");
-        btnText.innerText = "Copied to Clipboard! ✓";
+        btnText.innerText = "COPIED TO CLIPBOARD! ✓";
+        showToast("Email copied: " + email);
         setTimeout(() => {
-          btnText.innerText = "Copy Email";
+          btnText.innerText = "Copy Email Address";
         }, 2500);
       }).catch(err => {
         alert("Email: " + email);
       });
     }
+
+    // Scroll Helper
+    function scrollToConsole() {
+      playSound('click');
+      document.getElementById('console').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Console Tab Switcher
+    function switchConsoleTab(tabNum) {
+      playSound('click');
+      for (let i = 1; i <= 3; i++) {
+        const btn = document.getElementById(`tabBtn${i}`);
+        const content = document.getElementById(`tabContent${i}`);
+        if (i === tabNum) {
+          btn.className = "px-3.5 py-1.5 rounded-lg bg-neon-cyan text-black font-semibold flex items-center gap-1.5 transition-all cursor-pointer";
+          content.classList.remove('hidden');
+        } else {
+          btn.className = "px-3.5 py-1.5 rounded-lg bg-cyber-850 hover:bg-cyber-700 text-gray-300 font-medium flex items-center gap-1.5 transition-all cursor-pointer";
+          content.classList.add('hidden');
+        }
+      }
+    }
+
+    // Console Simulation 1: Scream It Payments HMAC Verification
+    function runPaymentsSimulation() {
+      playSound('terminal');
+      const terminal = document.getElementById('paymentsTerminal');
+      const status = document.getElementById('paymentsStatus');
+      status.innerText = "VERIFYING...";
+      status.className = "text-neon-amber animate-pulse";
+      terminal.innerHTML = "";
+
+      const logs = [
+        '<span class="text-neon-cyan">[00.001s]</span> INCOMING WEBHOOK: event="payment.authorized"',
+        '<span class="text-gray-400">[00.003s]</span> PAYLOAD: order_id="order_9821aX" | payment_id="pay_K72b99Z"',
+        '<span class="text-neon-amber">[00.006s]</span> COMPUTING HMAC: hash_hmac("sha256", payload, SECRET_KEY)',
+        '<span class="text-neon-emerald">[00.010s]</span> SIGNATURE MATCH: 8f4e2b...c91a == 8f4e2b...c91a [VERIFIED]',
+        '<span class="text-neon-blue">[00.014s]</span> TAX ENGINE: Gross ₹14,999.00 -> Base ₹12,711.02 + 18% GST ₹2,287.98',
+        '<span class="text-neon-purple">[00.018s]</span> CAPACITY ENGINE: Checked 14-day lead cutoff. Slot locked in MongoDB Atlas.',
+        '<span class="text-neon-emerald font-bold">[00.022s]</span> STATUS 200 OK: Zero Fraud Webhook Processed. Notification Dispatched.'
+      ];
+
+      logs.forEach((log, index) => {
+        setTimeout(() => {
+          terminal.innerHTML += `<p>${log}</p>`;
+          terminal.scrollTop = terminal.scrollHeight;
+          playSound('click');
+          if (index === logs.length - 1) {
+            status.innerText = "VERIFIED (200 OK)";
+            status.className = "text-neon-emerald font-bold";
+            showToast("HMAC Cryptographic Verification Succeeded!");
+          }
+        }, index * 120);
+      });
+    }
+
+    // Console Simulation 2: HealthAI ML Triage
+    function runHealthAISimulation() {
+      playSound('terminal');
+      const terminal = document.getElementById('healthaiTerminal');
+      const status = document.getElementById('healthaiStatus');
+      status.innerText = "INFERRING...";
+      status.className = "text-neon-purple animate-pulse";
+      terminal.innerHTML = "";
+
+      const logs = [
+        '<span class="text-neon-cyan">[00.002s]</span> INGESTING: Vitals stream [Age: 58, HR: 108, SBP: 162, DBP: 98, SpO2: 93%]',
+        '<span class="text-gray-400">[00.005s]</span> VECTORIZER: StandardJoblibScaler applying mean/variance normalization',
+        '<span class="text-neon-purple">[00.009s]</span> MODEL: Scikit-Learn Random Forest Classifier (100 estimators)',
+        '<span class="text-neon-amber">[00.014s]</span> PROBABILITIES: [L1: 0.04, L2: 0.88, L3: 0.06, L4: 0.02, L5: 0.00]',
+        '<span class="text-neon-emerald">[00.018s]</span> TRIAGE RESULT: Level 2 - Urgent Risk (Priority Clinician Queue)',
+        '<span class="text-neon-blue">[00.023s]</span> REPORTLAB: Dynamic PDF clinical report synthesized & AES encrypted.',
+        '<span class="text-neon-emerald font-bold">[00.028s]</span> STATUS: Alert dispatched to Duty Doctor (dr.sharma@healthai.local)'
+      ];
+
+      logs.forEach((log, index) => {
+        setTimeout(() => {
+          terminal.innerHTML += `<p>${log}</p>`;
+          terminal.scrollTop = terminal.scrollHeight;
+          playSound('click');
+          if (index === logs.length - 1) {
+            status.innerText = "INFERENCE COMPLETE";
+            status.className = "text-neon-emerald font-bold";
+            showToast("ML Triage Risk Computed!");
+          }
+        }, index * 120);
+      });
+    }
+
+    // Console Simulation 3: Micromouse Flood Fill
+    function runMazeSimulation() {
+      playSound('terminal');
+      const terminal = document.getElementById('mazeTerminal');
+      const status = document.getElementById('mazeStatus');
+      status.innerText = "SOLVING...";
+      status.className = "text-neon-emerald animate-pulse";
+      terminal.innerHTML = "";
+
+      const logs = [
+        '<span class="text-neon-cyan">[00.002s]</span> INITIALIZING: 16x16 IEEE maze grid (256 cells)',
+        '<span class="text-gray-400">[00.006s]</span> TARGET GOAL: Coordinates (7,7), (7,8), (8,7), (8,8) initialized to 0',
+        '<span class="text-neon-emerald">[00.011s]</span> SENSORY MAPPING: Ultrasonic wall sensors detected obstacle at (3,4)',
+        '<span class="text-neon-amber">[00.016s]</span> FLOOD FILL: Recalculating Manhattan potential field matrix across 48 cells',
+        '<span class="text-neon-purple">[00.021s]</span> GRAPH TRAVERSAL: BFS branch explored with 0 dead-end traps',
+        '<span class="text-neon-blue">[00.026s]</span> OPTIMAL PATH: 34 steps computed to center cell (7,7)',
+        '<span class="text-neon-emerald font-bold">[00.031s]</span> CONVERGENCE: Shortest route locked in 12.4s simulation time.'
+      ];
+
+      logs.forEach((log, index) => {
+        setTimeout(() => {
+          terminal.innerHTML += `<p>${log}</p>`;
+          terminal.scrollTop = terminal.scrollHeight;
+          playSound('click');
+          if (index === logs.length - 1) {
+            status.innerText = "PATH SOLVED";
+            status.className = "text-neon-emerald font-bold";
+            showToast("Flood Fill Path Solved!");
+          }
+        }, index * 120);
+      });
+    }
+
+    // Skills Filter Matrix
+    function filterSkills(category) {
+      playSound('click');
+      const buttons = ['all', 'backend', 'payments', 'frontend', 'devops'];
+      buttons.forEach(btn => {
+        const el = document.getElementById(`filterBtn-${btn}`);
+        if (el) {
+          if (btn === category) {
+            el.className = "px-3 py-1 rounded-lg bg-neon-cyan text-black font-semibold transition-all cursor-pointer";
+          } else {
+            el.className = "px-3 py-1 rounded-lg bg-cyber-850 hover:bg-cyber-700 text-gray-300 transition-all cursor-pointer";
+          }
+        }
+      });
+
+      const cards = document.querySelectorAll('.skill-card');
+      cards.forEach(card => {
+        const cats = card.getAttribute('data-category') || '';
+        if (category === 'all' || cats.includes(category)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Interactive Neural Network Background Canvas
+    (function initNeuralCanvas() {
+      const canvas = document.getElementById('neuralCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let particles = [];
+      const particleCount = 42;
+      const maxDistance = 125;
+      let mouse = { x: null, y: null, radius: 140 };
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      window.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.55;
+          this.vy = (Math.random() - 0.5) * 0.55;
+          this.radius = Math.random() * 1.5 + 1;
+          this.isCyan = Math.random() > 0.45;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
+
+          if (mouse.x !== null && mouse.y !== null) {
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouse.radius) {
+              const force = (mouse.radius - dist) / mouse.radius;
+              this.x -= (dx / dist) * force * 1.2;
+              this.y -= (dy / dist) * force * 1.2;
+            }
+          }
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = this.isCyan ? 'rgba(0, 240, 255, 0.7)' : 'rgba(168, 85, 247, 0.7)';
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < maxDistance) {
+              const alpha = (1 - dist / maxDistance) * 0.22;
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
   </script>
 </body>
 </html>
